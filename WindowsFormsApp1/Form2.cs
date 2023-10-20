@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,35 +13,52 @@ namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
-        Operation op;
-        public Form2(Operation _op)
+        private readonly ContextDb db;
+        public Form2(ContextDb _db)
         {
             InitializeComponent();
-            op = _op;
-
+           
+            db = _db;
         }
 
 
-        private void Form2_Load(object sender, EventArgs e)
+        private async void Form2_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = (from o in op.GetList<Order>()
-                                       join p in op.GetList<Products>()
-              on o.Product_id equals p.id
-                                       join u in op.GetList<User>() on o.User_id equals u.id
-                                       select new
-                                       {
-                                           id = o.id,
-                                           Name = p.Name,
-                                           Count = p.Count,
-                                           Price = p.Price,
-                                           NameUser = u.Name
-
-
-                                       }).ToList();
-
+           List<OrderViewModel> orders =await GetListOrder();
+            if (orders != null && orders.Any())
+            {
+                dataGridView1.DataSource =orders;
+            }
+            else
+            {
+                MessageBox.Show("دیتا یافت نشد");
+            }
             SetName_DataGridView();
+        }
+
+        public async Task<List<OrderViewModel>> GetListOrder()
+        {
+            try
+            {
+                var orders = await db.Order
+               .Include(o => o.Products).Include(o => o.User).Select(o => new OrderViewModel
+               {
+                   id = o.id,
+                   NameKala = o.Products.Name,
+                   count = o.Products.Count,
+                   Price = o.Products.Price,
+                   UserName = o.User.Name
+               }).ToListAsync();
 
 
+
+
+                return orders;
+            }
+            catch
+            {
+                return null;
+            }
         }
         private void SetName_DataGridView()
         {
@@ -50,5 +68,7 @@ namespace WindowsFormsApp1
             dataGridView1.Columns[3].HeaderText = "قیمت";
             dataGridView1.Columns[4].HeaderText = "نام کاربر";
         }
+
+        
     }
 }

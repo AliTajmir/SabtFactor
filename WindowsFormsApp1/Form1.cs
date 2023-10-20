@@ -12,12 +12,17 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {        
-        Operation operation;
+        Operation<Products> op_Product;
+        Operation<Order> op_Order;
+        Operation<User> op_User;
         ContextDb db;
+        int id;
         public Form1()
         {
             InitializeComponent();
-             operation = new Operation();
+            op_Product = new Operation<Products>();
+            op_Order = new Operation<Order>();
+            op_User = new Operation<User>();
             db = new ContextDb();
         }
         private void SetName_DataGridView()
@@ -29,15 +34,7 @@ namespace WindowsFormsApp1
            
 
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource =operation.GetList<Products>() ;
-            comboUser.DataSource = operation.GetList<User>();
-            comboUser.DisplayMember = "Name";
-            comboUser.ValueMember = "id";
-            SetName_DataGridView();
-
-        }
+      
 
         private void btn_Sabt_order_Click(object sender, EventArgs e)
         {
@@ -45,7 +42,8 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    int id = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    
+                    int id = GetItemDataGridView();
                     var item = db.Products.Find(id);
                     if (comboUser.Items.Count > 0)
                     {
@@ -53,8 +51,9 @@ namespace WindowsFormsApp1
                         string Name_combo = comboUser.Text;
                         Order order = new Order();
                         order.Product_id = item.id;
+                        
                         order.User_id = id_combo;
-                        operation.AddData<Order>(order);
+                        op_Order.AddData(order);
                         var message = item != null ? MessageBox.Show("یک کالا اضافه شد") : MessageBox.Show("به مشکل خورد");
                         dataGridView1.SelectedRows[0].DefaultCellStyle.BackColor = Color.Yellow;
 
@@ -75,7 +74,8 @@ namespace WindowsFormsApp1
 
         private void btn_ShowOrders_Click(object sender, EventArgs e)
         {
-            new Form2(operation).ShowDialog();
+            //new Form2(op_Order,op_Product,op_User).ShowDialog();
+            new Form2(db).ShowDialog();
         }
 
         private void comboUser_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,8 +102,8 @@ namespace WindowsFormsApp1
                 Count = int.Parse(txtCount.Text),
 
             };
-            
-            operation.AddData<Products>(products);
+
+            op_Product.AddData(products);
             Form1_Load(null, null);
 
         }
@@ -114,8 +114,67 @@ namespace WindowsFormsApp1
             {
                 Name = txtUser.Text,
             };
-            operation.AddData<User>(user);
+            op_User.AddData(user);
             Form1_Load(null, null);
+        }
+
+        private void  btnUpdate_Click(object sender, EventArgs e)
+        {
+           
+          var item= db.Products.Find(id);
+            item.Name = txtNameProduct.Text;
+            item.Price =int.Parse( txtPrice.Text);
+            item.Count = int.Parse(txtCount.Text);
+            db.SaveChanges();
+            Form1_Load(null, null);
+        }
+        public int GetItemDataGridView()
+        {
+            int id = int.Parse( dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            return  id;
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            op_Product.delete(GetItemDataGridView());
+            Form1_Load(null, null);
+        }
+
+        private  void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            op_User.delete((int)comboUser.SelectedValue);
+            Form1_Load(null, null);
+
+        }
+
+        private async void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = await op_Product.GetItem(GetItemDataGridView());
+                txtNameProduct.Text = item.Name;
+                txtPrice.Text = item.Price.ToString();
+                txtCount.Text = item.Count.ToString();
+                id = item.id;
+            }
+            catch(Exception er)
+            {
+                MessageBox.Show("an orrucced error:" + er.Message);
+            }
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource =await  op_Product.GetList();
+            comboUser.DataSource = await op_User.GetList();
+            comboUser.DisplayMember = "Name";
+            comboUser.ValueMember = "id";
+            SetName_DataGridView();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

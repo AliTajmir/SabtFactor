@@ -37,6 +37,8 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,7 +47,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.btnSabt = new System.Windows.Forms.Button();
-            this.btnAddUser = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,6 +66,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(937, 330);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // btn_Sabt_order
             // 
@@ -128,6 +132,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDeleteUser);
             this.groupBox1.Controls.Add(this.btnAddUser);
             this.groupBox1.Controls.Add(this.txtUser);
             this.groupBox1.Controls.Add(this.comboUser);
@@ -138,6 +143,26 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "قسمت کاربران";
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.Location = new System.Drawing.Point(193, 79);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(143, 52);
+            this.btnDeleteUser.TabIndex = 9;
+            this.btnDeleteUser.Text = "حذف کاربر";
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Location = new System.Drawing.Point(193, 21);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(143, 52);
+            this.btnAddUser.TabIndex = 9;
+            this.btnAddUser.Text = "اضافه کردن کاربر";
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // txtUser
             // 
@@ -207,23 +232,33 @@
             // 
             // btnSabt
             // 
-            this.btnSabt.Location = new System.Drawing.Point(685, 574);
+            this.btnSabt.Location = new System.Drawing.Point(824, 567);
             this.btnSabt.Name = "btnSabt";
-            this.btnSabt.Size = new System.Drawing.Size(256, 59);
+            this.btnSabt.Size = new System.Drawing.Size(69, 59);
             this.btnSabt.TabIndex = 8;
             this.btnSabt.Text = "ثبت کالا";
             this.btnSabt.UseVisualStyleBackColor = true;
             this.btnSabt.Click += new System.EventHandler(this.btnSabt_Click);
             // 
-            // btnAddUser
+            // btnUpdate
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(193, 21);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(143, 52);
-            this.btnAddUser.TabIndex = 9;
-            this.btnAddUser.Text = "اضافه کردن کاربر";
-            this.btnAddUser.UseVisualStyleBackColor = true;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            this.btnUpdate.Location = new System.Drawing.Point(749, 567);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(69, 59);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "ویرایش";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(674, 567);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(69, 59);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "حذف";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Form1
             // 
@@ -231,6 +266,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(953, 656);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSabt);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label6);
@@ -276,6 +313,9 @@
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button btnSabt;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeleteUser;
     }
 }
 
