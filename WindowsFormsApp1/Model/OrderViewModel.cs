@@ -13,5 +13,7 @@ namespace WindowsFormsApp1
         public string UserName { get; set; }
         public int Price { get; set; }
         public int count { get; set; }
+
+        public int Total { get { return this.Price * this.count; } }
     }
 }

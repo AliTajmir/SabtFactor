@@ -25,6 +25,7 @@ namespace WindowsFormsApp1
         [ForeignKey("User")]
 
         public int User_id { get; set; }
+        public int Count { get; set; }
 
         public virtual Products Products { get; set; }
         public virtual User User { get; set; }

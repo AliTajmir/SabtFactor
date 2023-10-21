@@ -70,9 +70,9 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310191724224_db.cs" />
-    <Compile Include="Migrations\202310191724224_db.designer.cs">
-      <DependentUpon>202310191724224_db.cs</DependentUpon>
+    <Compile Include="Migrations\202310212101559_db.cs" />
+    <Compile Include="Migrations\202310212101559_db.designer.cs">
+      <DependentUpon>202310212101559_db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\ContextDb.cs" />
@@ -90,8 +90,8 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310191724224_db.resx">
-      <DependentUpon>202310191724224_db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202310212101559_db.resx">
+      <DependentUpon>202310212101559_db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

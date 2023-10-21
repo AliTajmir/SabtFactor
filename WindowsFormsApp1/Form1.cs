@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
                 try
                 {
                     
-                    int id = GetItemDataGridView();
+                    int id = GetIdGridView();
                     var item = db.Products.Find(id);
                     if (comboUser.Items.Count > 0)
                     {
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
                         string Name_combo = comboUser.Text;
                         Order order = new Order();
                         order.Product_id = item.id;
-                        
+                        order.Count = 1;
                         order.User_id = id_combo;
                         op_Order.AddData(order);
                         var message = item != null ? MessageBox.Show("یک کالا اضافه شد") : MessageBox.Show("به مشکل خورد");
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1
         private void btn_ShowOrders_Click(object sender, EventArgs e)
         {
             //new Form2(op_Order,op_Product,op_User).ShowDialog();
-            new Form2(db).ShowDialog();
+            new Form2(db,op_Order,op_User).ShowDialog();
         }
 
         private void comboUser_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,14 +121,14 @@ namespace WindowsFormsApp1
         private void  btnUpdate_Click(object sender, EventArgs e)
         {
            
-          var item= db.Products.Find(id);
+          var item= db.Products.Find(GetIdGridView());
             item.Name = txtNameProduct.Text;
             item.Price =int.Parse( txtPrice.Text);
             item.Count = int.Parse(txtCount.Text);
             db.SaveChanges();
-            Form1_Load(null, null);
+            FormLoad();
         }
-        public int GetItemDataGridView()
+        public int GetIdGridView()
         {
             int id = int.Parse( dataGridView1.CurrentRow.Cells[0].Value.ToString());
             return  id;
@@ -136,14 +136,14 @@ namespace WindowsFormsApp1
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            op_Product.delete(GetItemDataGridView());
-            Form1_Load(null, null);
+            op_Product.delete(GetIdGridView());
+            FormLoad();
         }
 
         private  void btnDeleteUser_Click(object sender, EventArgs e)
         {
             op_User.delete((int)comboUser.SelectedValue);
-            Form1_Load(null, null);
+            FormLoad();
 
         }
 
@@ -151,7 +151,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var item = await op_Product.GetItem(GetItemDataGridView());
+                var item = await op_Product.GetItem(GetIdGridView());
                 txtNameProduct.Text = item.Name;
                 txtPrice.Text = item.Price.ToString();
                 txtCount.Text = item.Count.ToString();
@@ -162,19 +162,48 @@ namespace WindowsFormsApp1
                 MessageBox.Show("an orrucced error:" + er.Message);
             }
         }
-
-        private async void Form1_Load(object sender, EventArgs e)
+        private async void FormLoad()
         {
-            dataGridView1.DataSource =await  op_Product.GetList();
-            comboUser.DataSource = await op_User.GetList();
-            comboUser.DisplayMember = "Name";
-            comboUser.ValueMember = "id";
-            SetName_DataGridView();
+            try
+            {
+                dataGridView1.DataSource = await op_Product.GetList();
+                comboUser.DataSource = await op_User.GetList();
+                comboUser.DisplayMember = "Name";
+                comboUser.ValueMember = "id";
+                SetName_DataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            FormLoad();
         }
 
         private void btnUpdate_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+          var list=  db.Products.Where(x => x.Name.Contains(txtSearchName.Text));
+            if(list!=null&&list.Any())
+            dataGridView1.DataSource = list.ToList();
+            else
+            {
+                MessageBox.Show("نتیجه ای یافت نشد");
+            }
+        }
+
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchName.Text == "")
+            {
+                FormLoad();
+            }
         }
     }
 }

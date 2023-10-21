@@ -35,7 +35,7 @@
             this.txtNameProduct = new System.Windows.Forms.TextBox();
             this.txtCount = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
@@ -122,13 +122,14 @@
             this.txtPrice.Size = new System.Drawing.Size(171, 37);
             this.txtPrice.TabIndex = 4;
             // 
-            // textBox4
+            // txtSearchName
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 33);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(171, 37);
-            this.textBox4.TabIndex = 4;
+            this.txtSearchName.Location = new System.Drawing.Point(6, 33);
+            this.txtSearchName.Multiline = true;
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.Size = new System.Drawing.Size(171, 37);
+            this.txtSearchName.TabIndex = 4;
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
             // groupBox1
             // 
@@ -211,7 +212,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btn_search);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtSearchName);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(370, 380);
             this.groupBox2.Name = "groupBox2";
@@ -229,6 +230,7 @@
             this.btn_search.TabIndex = 7;
             this.btn_search.Text = "جستجو";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // btnSabt
             // 
@@ -302,7 +304,7 @@
         private System.Windows.Forms.TextBox txtNameProduct;
         private System.Windows.Forms.TextBox txtCount;
         private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label1;
