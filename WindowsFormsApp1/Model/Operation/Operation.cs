@@ -33,7 +33,22 @@ namespace WindowsFormsApp1
             db.Set<T>().Remove(item);
             db.SaveChanges();
         }
+        public  bool Up(T item)
+        {
+            //try
+            //{
+                
 
+                db.Entry(item).CurrentValues.SetValues(item);
+               db.SaveChanges();
+                return true;
+            //}
+            //catch
+            //{
+                
+            //    return false;
+            //}
+        }
        
     }
 }
