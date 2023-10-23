@@ -79,17 +79,23 @@ namespace WindowsFormsApp1
             new FrmOrders(db,op_Order,op_User).ShowDialog();
         }
 
-        private void comboUser_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboUser_SelectedValueChanged(object sender, EventArgs e)
+        private async void comboUser_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
                 row.DefaultCellStyle.BackColor = Color.White;
             }
+            User item =await op_User.GetItem((int)comboUser.SelectedValue);
+           
+                txtUser.Text = item.Name;
+            txtPhoneNumber.Text = item.PhoneNumber;
+            txtAdres.Text = item.Adres;
+        }
+
+        private async void comboUser_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+            
             
             
         }
@@ -105,6 +111,8 @@ namespace WindowsFormsApp1
             User user = new User()
             {
                 Name = txtUser.Text,
+                PhoneNumber=txtPhoneNumber.Text,
+                Adres=txtAdres.Text
             };
             op_User.AddData(user);
             Form1_Load(null, null);

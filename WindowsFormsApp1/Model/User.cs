@@ -12,6 +12,9 @@ namespace WindowsFormsApp1
         [Key]
         public int id { get; set; }
         public string Name { get; set; }
+        public string PhoneNumber { get; set; }
+        
+        public string Adres { get; set; }
 
         public virtual IEnumerable<Order> Orders { get; set; }
 
