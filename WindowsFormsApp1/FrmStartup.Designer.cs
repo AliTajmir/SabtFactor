@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_Sabt_order = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboUser = new System.Windows.Forms.ComboBox();
-            this.btn_ShowOrders = new System.Windows.Forms.Button();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.btnAddUser = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,41 +42,22 @@
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_search = new System.Windows.Forms.Button();
-            this.btnSabt = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewX1 = new Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX();
+            this.dataGridViewX2 = new Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX();
+            this.btnDeleteUser = new DevComponents.DotNetBar.ButtonX();
+            this.btnAddUser = new DevComponents.DotNetBar.ButtonX();
+            this.btn_search = new DevComponents.DotNetBar.ButtonX();
+            this.btn_ShowOrders = new DevComponents.DotNetBar.ButtonX();
+            this.btn_Sabt_order = new DevComponents.DotNetBar.ButtonX();
+            this.btnDelete_Pish_Factor = new DevComponents.DotNetBar.ButtonX();
+            this.btnDelete = new DevComponents.DotNetBar.ButtonX();
+            this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
+            this.btnSabt = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.GridColor = System.Drawing.Color.Cyan;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1169, 336);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // btn_Sabt_order
-            // 
-            this.btn_Sabt_order.Location = new System.Drawing.Point(764, 530);
-            this.btn_Sabt_order.Name = "btn_Sabt_order";
-            this.btn_Sabt_order.Size = new System.Drawing.Size(114, 74);
-            this.btn_Sabt_order.TabIndex = 1;
-            this.btn_Sabt_order.Text = "اضافه کردن به پیش فاکتور";
-            this.btn_Sabt_order.UseVisualStyleBackColor = true;
-            this.btn_Sabt_order.Click += new System.EventHandler(this.btn_Sabt_order_Click);
             // 
             // comboUser
             // 
@@ -89,16 +67,6 @@
             this.comboUser.Size = new System.Drawing.Size(262, 24);
             this.comboUser.TabIndex = 2;
             this.comboUser.SelectedIndexChanged += new System.EventHandler(this.comboUser_SelectedIndexChanged);
-            // 
-            // btn_ShowOrders
-            // 
-            this.btn_ShowOrders.Location = new System.Drawing.Point(582, 530);
-            this.btn_ShowOrders.Name = "btn_ShowOrders";
-            this.btn_ShowOrders.Size = new System.Drawing.Size(176, 74);
-            this.btn_ShowOrders.TabIndex = 3;
-            this.btn_ShowOrders.Text = "ثبت نهایی و رفتن به صفحه فاکتور";
-            this.btn_ShowOrders.UseVisualStyleBackColor = true;
-            this.btn_ShowOrders.Click += new System.EventHandler(this.btn_ShowOrders_Click);
             // 
             // txtSearchName
             // 
@@ -111,8 +79,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnDeleteUser);
             this.groupBox1.Controls.Add(this.btnAddUser);
+            this.groupBox1.Controls.Add(this.btnDeleteUser);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -128,26 +96,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "قسمت کاربران";
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(422, 27);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(143, 52);
-            this.btnDeleteUser.TabIndex = 9;
-            this.btnDeleteUser.Text = "حذف کاربر";
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
-            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.Location = new System.Drawing.Point(422, 86);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(143, 52);
-            this.btnAddUser.TabIndex = 9;
-            this.btnAddUser.Text = "اضافه کردن کاربر";
-            this.btnAddUser.UseVisualStyleBackColor = true;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // label5
             // 
@@ -235,60 +183,175 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
             // 
+            // dataGridViewX1
+            // 
+            this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.dataGridViewX1.Location = new System.Drawing.Point(17, 16);
+            this.dataGridViewX1.Name = "dataGridViewX1";
+            this.dataGridViewX1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridViewX1.RowHeadersWidth = 51;
+            this.dataGridViewX1.RowTemplate.Height = 24;
+            this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewX1.Size = new System.Drawing.Size(1140, 298);
+            this.dataGridViewX1.TabIndex = 10;
+            // 
+            // dataGridViewX2
+            // 
+            this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridViewX2.Location = new System.Drawing.Point(884, 435);
+            this.dataGridViewX2.Name = "dataGridViewX2";
+            this.dataGridViewX2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridViewX2.RowHeadersWidth = 51;
+            this.dataGridViewX2.RowTemplate.Height = 24;
+            this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewX2.Size = new System.Drawing.Size(273, 238);
+            this.dataGridViewX2.TabIndex = 10;
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDeleteUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteUser.Location = new System.Drawing.Point(420, 38);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnDeleteUser.Size = new System.Drawing.Size(145, 62);
+            this.btnDeleteUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDeleteUser.TabIndex = 10;
+            this.btnDeleteUser.Text = "حذف کاربر";
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click_1);
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddUser.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.Location = new System.Drawing.Point(420, 108);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnAddUser.Size = new System.Drawing.Size(145, 62);
+            this.btnAddUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddUser.TabIndex = 10;
+            this.btnAddUser.Text = "اضافه کردن کاربر";
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click_1);
+            // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(6, 97);
+            this.btn_search.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_search.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_search.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search.Location = new System.Drawing.Point(15, 89);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(252, 46);
-            this.btn_search.TabIndex = 7;
-            this.btn_search.Text = "جستجو";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            this.btn_search.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_search.Size = new System.Drawing.Size(252, 74);
+            this.btn_search.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_search.TabIndex = 10;
+            this.btn_search.Text = "جستجوی کالا";
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click_1);
             // 
-            // btnSabt
+            // btn_ShowOrders
             // 
-            this.btnSabt.Location = new System.Drawing.Point(1070, 351);
-            this.btnSabt.Name = "btnSabt";
-            this.btnSabt.Size = new System.Drawing.Size(87, 77);
-            this.btnSabt.TabIndex = 8;
-            this.btnSabt.Text = "ثبت کالا";
-            this.btnSabt.UseVisualStyleBackColor = true;
-            this.btnSabt.Click += new System.EventHandler(this.btnSabt_Click);
+            this.btn_ShowOrders.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_ShowOrders.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_ShowOrders.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowOrders.Location = new System.Drawing.Point(598, 530);
+            this.btn_ShowOrders.Name = "btn_ShowOrders";
+            this.btn_ShowOrders.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_ShowOrders.Size = new System.Drawing.Size(147, 74);
+            this.btn_ShowOrders.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_ShowOrders.TabIndex = 10;
+            this.btn_ShowOrders.Text = "ثبت نهایی و رفتن به صفحه فاکتور";
+            this.btn_ShowOrders.Click += new System.EventHandler(this.btn_ShowOrders_Click_1);
             // 
-            // btnUpdate
+            // btn_Sabt_order
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(977, 351);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(87, 77);
-            this.btnUpdate.TabIndex = 8;
-            this.btnUpdate.Text = "ویرایش";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btn_Sabt_order.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Sabt_order.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Sabt_order.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sabt_order.Location = new System.Drawing.Point(751, 530);
+            this.btn_Sabt_order.Name = "btn_Sabt_order";
+            this.btn_Sabt_order.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_Sabt_order.Size = new System.Drawing.Size(127, 74);
+            this.btn_Sabt_order.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Sabt_order.TabIndex = 10;
+            this.btn_Sabt_order.Text = "اضافه کردن پیش فاکتور";
+            this.btn_Sabt_order.Click += new System.EventHandler(this.btn_Sabt_order_Click_1);
+            // 
+            // btnDelete_Pish_Factor
+            // 
+            this.btnDelete_Pish_Factor.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDelete_Pish_Factor.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDelete_Pish_Factor.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete_Pish_Factor.Location = new System.Drawing.Point(598, 610);
+            this.btnDelete_Pish_Factor.Name = "btnDelete_Pish_Factor";
+            this.btnDelete_Pish_Factor.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnDelete_Pish_Factor.Size = new System.Drawing.Size(280, 53);
+            this.btnDelete_Pish_Factor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDelete_Pish_Factor.TabIndex = 10;
+            this.btnDelete_Pish_Factor.Text = "حذف پیش فاکتور";
+            this.btnDelete_Pish_Factor.Click += new System.EventHandler(this.btnDelete_Pish_Factor_Click_1);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(884, 351);
+            this.btnDelete.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDelete.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDelete.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(884, 355);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(87, 77);
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnDelete.Size = new System.Drawing.Size(69, 74);
+            this.btnDelete.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "حذف";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
-            // dataGridView2
+            // btnUpdate
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.GridColor = System.Drawing.Color.Cyan;
-            this.dataGridView2.Location = new System.Drawing.Point(884, 435);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(285, 238);
-            this.dataGridView2.TabIndex = 9;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnUpdate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(978, 355);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnUpdate.Size = new System.Drawing.Size(69, 74);
+            this.btnUpdate.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "ویرایش";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_2);
+            // 
+            // btnSabt
+            // 
+            this.btnSabt.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSabt.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSabt.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSabt.Location = new System.Drawing.Point(1071, 355);
+            this.btnSabt.Name = "btnSabt";
+            this.btnSabt.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnSabt.Size = new System.Drawing.Size(66, 74);
+            this.btnSabt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSabt.TabIndex = 10;
+            this.btnSabt.Text = "ثبت کالا";
+            this.btnSabt.Click += new System.EventHandler(this.btnSabt_Click_1);
             // 
             // FrmStartup
             // 
@@ -296,51 +359,52 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1169, 675);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnDelete_Pish_Factor);
+            this.Controls.Add(this.btn_Sabt_order);
             this.Controls.Add(this.btnSabt);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btn_ShowOrders);
+            this.Controls.Add(this.dataGridViewX2);
+            this.Controls.Add(this.dataGridViewX1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn_ShowOrders);
-            this.Controls.Add(this.btn_Sabt_order);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "FrmStartup";
             this.Load += new System.EventHandler(this.FrmStartup_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btn_Sabt_order;
         private System.Windows.Forms.ComboBox comboUser;
-        private System.Windows.Forms.Button btn_ShowOrders;
         private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btn_search;
-        private System.Windows.Forms.Button btnSabt;
-        private System.Windows.Forms.Button btnAddUser;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX dataGridViewX1;
+        private Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX dataGridViewX2;
+        private DevComponents.DotNetBar.ButtonX btnDeleteUser;
+        private DevComponents.DotNetBar.ButtonX btnAddUser;
+        private DevComponents.DotNetBar.ButtonX btn_search;
+        private DevComponents.DotNetBar.ButtonX btn_ShowOrders;
+        private DevComponents.DotNetBar.ButtonX btn_Sabt_order;
+        private DevComponents.DotNetBar.ButtonX btnDelete_Pish_Factor;
+        private DevComponents.DotNetBar.ButtonX btnDelete;
+        private DevComponents.DotNetBar.ButtonX btnUpdate;
+        private DevComponents.DotNetBar.ButtonX btnSabt;
     }
 }
 

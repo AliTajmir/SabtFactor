@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,16 +73,16 @@ namespace WindowsFormsApp1
         }
         private void SetName_DataGridView()
         {
-            dataGridView1.Columns[0].HeaderText = "شماره سفارش";
-            dataGridView1.Columns[1].HeaderText = "نام کالا";
-            dataGridView1.Columns[2].HeaderText = "نام کاربر";
-            dataGridView1.Columns[3].HeaderText = "قیمت";
-            dataGridView1.Columns[4].HeaderText = "تعداد کالا";
-            dataGridView1.Columns[5].HeaderText = "قیمت کل";
+            dataGridViewX1.Columns[0].HeaderText = "شماره سفارش";
+            dataGridViewX1.Columns[1].HeaderText = "نام کالا";
+            dataGridViewX1.Columns[2].HeaderText = "نام کاربر";
+            dataGridViewX1.Columns[3].HeaderText = "قیمت";
+            dataGridViewX1.Columns[4].HeaderText = "تعداد کالا";
+            dataGridViewX1.Columns[5].HeaderText = "قیمت کل";
         }
         private int GetIdDataGridView()
         {
-            int id =int.Parse( dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            int id =int.Parse(dataGridViewX1.CurrentRow.Cells[0].Value.ToString());
             return  id;
 
         }
@@ -94,7 +95,7 @@ namespace WindowsFormsApp1
             {
                 int id = (int)combo_Search_UserName.SelectedValue;
                 orderViewModels = await GetListOrder(id);
-                dataGridView1.DataSource = orderViewModels.ToList();
+                dataGridViewX1.DataSource = orderViewModels.ToList();
 
 
 
@@ -106,32 +107,11 @@ namespace WindowsFormsApp1
             
         }
 
-        private async void btn_Up_dg_Click(object sender, EventArgs e)
-        {
+      
 
-            orderViewModels =await GetListOrder(null);
-            dataGridView1.DataSource = orderViewModels;
-        }
+     
 
-        private void btnChange_Count_order_Click(object sender, EventArgs e)
-        {
-            Order item = db.Order.Find(GetIdDataGridView());
-            item.Count =int.Parse( numericUpDown1.Value.ToString());
-            db.SaveChanges();
-            FrmOrders_Load(null, null);
-        }
-
-        private async void btnDeleteOrder_Click(object sender, EventArgs e)
-        {
-            var check = await op_order.delete(GetIdDataGridView());
-            if (check != null)
-                MessageBox.Show(check.Message);
-            else
-                MessageBox.Show("یک رکورد حذف گردید");
-
-            FrmOrders_Load(null, null);
-
-        }
+       
 
         private async void FrmOrders_Load(object sender, EventArgs e)
         {
@@ -145,20 +125,50 @@ namespace WindowsFormsApp1
                 }
                 orderViewModels = await GetListOrder(null);
 
-                if (orderViewModels != null && orderViewModels.Any())
-                {
-                    dataGridView1.DataSource = orderViewModels;
-                }
-                else
-                {
-                    MessageBox.Show("دیتا یافت نشد");
-                }
+                dataGridViewX1.DataSource = orderViewModels;
                 SetName_DataGridView();
+
             }
             catch (Exception er)
             {
                 MessageBox.Show(er.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_Print_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnChange_Count_order_Click_1(object sender, EventArgs e)
+        {
+            Order item = db.Order.Find(GetIdDataGridView());
+            item.Count = int.Parse(numericUpDown1.Value.ToString());
+            db.SaveChanges();
+            FrmOrders_Load(null, null);
+        }
+
+        private async void btnDeleteOrder_Click_1(object sender, EventArgs e)
+        {
+            var check = await op_order.delete(GetIdDataGridView());
+            if (check != null)
+                MessageBox.Show(check.Message);
+            else
+                MessageBox.Show("یک رکورد حذف گردید");
+
+
+            FrmOrders_Load(null, null);
+        }
+
+        private async void btn_Up_dg_Click_1(object sender, EventArgs e)
+        {
+            orderViewModels = await GetListOrder(null);
+            dataGridViewX1.DataSource = orderViewModels;
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
