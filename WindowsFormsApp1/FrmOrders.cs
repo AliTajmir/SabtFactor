@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     public partial class FrmOrders : Form
     {
         private readonly ContextDb db;
-        private readonly Operation<Order> op_order;
+        private Operation<Order> op_order;
         private readonly Operation<User> op_User;
         private  List<OrderViewModel> orderViewModels;
         public FrmOrders(ContextDb _db, Operation<Order> _op_order,Operation<User> _op_User)
@@ -26,29 +26,7 @@ namespace WindowsFormsApp1
         }
 
 
-        private async void Form2_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                orderViewModels = await GetListOrder(null);
-                combo_Search_UserName.DataSource = await op_User.GetList();
-                combo_Search_UserName.DisplayMember = "Name";
-                combo_Search_UserName.ValueMember = "id";
-                if (orderViewModels != null && orderViewModels.Any())
-                {
-                    dataGridView1.DataSource = orderViewModels;
-                }
-                else
-                {
-                    MessageBox.Show("دیتا یافت نشد");
-                }
-                SetName_DataGridView();
-            }
-            catch(Exception er)
-            {
-                MessageBox.Show(er.Message,"error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-        }
+      
 
         public async Task<List<OrderViewModel>> GetListOrder(int? User_id)
         {
@@ -94,7 +72,7 @@ namespace WindowsFormsApp1
         }
         private void SetName_DataGridView()
         {
-            dataGridView1.Columns[0].HeaderText = "شماره کالا";
+            dataGridView1.Columns[0].HeaderText = "شماره سفارش";
             dataGridView1.Columns[1].HeaderText = "نام کالا";
             dataGridView1.Columns[2].HeaderText = "نام کاربر";
             dataGridView1.Columns[3].HeaderText = "قیمت";
@@ -103,16 +81,12 @@ namespace WindowsFormsApp1
         }
         private int GetIdDataGridView()
         {
-            var id =int.Parse( dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            int id =int.Parse( dataGridView1.CurrentRow.Cells[0].Value.ToString());
             return  id;
 
         }
        
-        private void btnDeleteOrder_Click(object sender, EventArgs e)
-        {
-            op_order.delete(GetIdDataGridView());
-            Form2_Load(null,null);
-        }
+      
 
         private async void combo_Search_UserName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -120,14 +94,14 @@ namespace WindowsFormsApp1
             {
                 int id = (int)combo_Search_UserName.SelectedValue;
                 orderViewModels = await GetListOrder(id);
-                dataGridView1.DataSource = orderViewModels;
+                dataGridView1.DataSource = orderViewModels.ToList();
 
 
 
             }
-            catch(Exception er)
+            catch
             {
-                MessageBox.Show(er.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
             
         }
@@ -139,12 +113,52 @@ namespace WindowsFormsApp1
             dataGridView1.DataSource = orderViewModels;
         }
 
-        private void btnChange_order_Click(object sender, EventArgs e)
+        private void btnChange_Count_order_Click(object sender, EventArgs e)
         {
             Order item = db.Order.Find(GetIdDataGridView());
             item.Count =int.Parse( numericUpDown1.Value.ToString());
             db.SaveChanges();
-            Form2_Load(null, null);
+            FrmOrders_Load(null, null);
+        }
+
+        private async void btnDeleteOrder_Click(object sender, EventArgs e)
+        {
+            var check = await op_order.delete(GetIdDataGridView());
+            if (check != null)
+                MessageBox.Show(check.Message);
+            else
+                MessageBox.Show("یک رکورد حذف گردید");
+
+            FrmOrders_Load(null, null);
+
+        }
+
+        private async void FrmOrders_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (combo_Search_UserName.Items.Count == 0)
+                {
+                    combo_Search_UserName.DataSource = await op_User.GetList();
+                    combo_Search_UserName.DisplayMember = "Name";
+                    combo_Search_UserName.ValueMember = "id";
+                }
+                orderViewModels = await GetListOrder(null);
+
+                if (orderViewModels != null && orderViewModels.Any())
+                {
+                    dataGridView1.DataSource = orderViewModels;
+                }
+                else
+                {
+                    MessageBox.Show("دیتا یافت نشد");
+                }
+                SetName_DataGridView();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

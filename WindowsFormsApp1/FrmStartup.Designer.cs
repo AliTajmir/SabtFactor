@@ -36,6 +36,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAdres = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -43,37 +49,35 @@
             this.btnSabt = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtAdres = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 6);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.GridColor = System.Drawing.Color.Cyan;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1152, 330);
+            this.dataGridView1.Size = new System.Drawing.Size(1169, 336);
             this.dataGridView1.TabIndex = 0;
             // 
             // btn_Sabt_order
             // 
-            this.btn_Sabt_order.Location = new System.Drawing.Point(604, 610);
+            this.btn_Sabt_order.Location = new System.Drawing.Point(764, 530);
             this.btn_Sabt_order.Name = "btn_Sabt_order";
-            this.btn_Sabt_order.Size = new System.Drawing.Size(176, 63);
+            this.btn_Sabt_order.Size = new System.Drawing.Size(114, 74);
             this.btn_Sabt_order.TabIndex = 1;
-            this.btn_Sabt_order.Text = "اضافه کردن به سبد خرید";
+            this.btn_Sabt_order.Text = "اضافه کردن به پیش فاکتور";
             this.btn_Sabt_order.UseVisualStyleBackColor = true;
             this.btn_Sabt_order.Click += new System.EventHandler(this.btn_Sabt_order_Click);
             // 
@@ -85,15 +89,14 @@
             this.comboUser.Size = new System.Drawing.Size(262, 24);
             this.comboUser.TabIndex = 2;
             this.comboUser.SelectedIndexChanged += new System.EventHandler(this.comboUser_SelectedIndexChanged);
-            this.comboUser.SelectedValueChanged += new System.EventHandler(this.comboUser_SelectedValueChanged);
             // 
             // btn_ShowOrders
             // 
-            this.btn_ShowOrders.Location = new System.Drawing.Point(604, 530);
+            this.btn_ShowOrders.Location = new System.Drawing.Point(582, 530);
             this.btn_ShowOrders.Name = "btn_ShowOrders";
             this.btn_ShowOrders.Size = new System.Drawing.Size(176, 74);
             this.btn_ShowOrders.TabIndex = 3;
-            this.btn_ShowOrders.Text = "نمایش سفارشات";
+            this.btn_ShowOrders.Text = "ثبت نهایی و رفتن به صفحه فاکتور";
             this.btn_ShowOrders.UseVisualStyleBackColor = true;
             this.btn_ShowOrders.Click += new System.EventHandler(this.btn_ShowOrders_Click);
             // 
@@ -145,6 +148,62 @@
             this.btnAddUser.Text = "اضافه کردن کاربر";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 41);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label5.Size = new System.Drawing.Size(48, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "کاربران:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 93);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "نام کاربر:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(41, 225);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(39, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "آدرس:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 155);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "شماره تماس:";
+            // 
+            // txtAdres
+            // 
+            this.txtAdres.Location = new System.Drawing.Point(120, 199);
+            this.txtAdres.Multiline = true;
+            this.txtAdres.Name = "txtAdres";
+            this.txtAdres.Size = new System.Drawing.Size(263, 116);
+            this.txtAdres.TabIndex = 4;
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.Location = new System.Drawing.Point(120, 145);
+            this.txtPhoneNumber.Multiline = true;
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(263, 37);
+            this.txtPhoneNumber.TabIndex = 4;
             // 
             // txtUser
             // 
@@ -216,61 +275,20 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // txtPhoneNumber
+            // dataGridView2
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(120, 145);
-            this.txtPhoneNumber.Multiline = true;
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(263, 37);
-            this.txtPhoneNumber.TabIndex = 4;
-            // 
-            // txtAdres
-            // 
-            this.txtAdres.Location = new System.Drawing.Point(120, 199);
-            this.txtAdres.Multiline = true;
-            this.txtAdres.Name = "txtAdres";
-            this.txtAdres.Size = new System.Drawing.Size(263, 116);
-            this.txtAdres.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 155);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "شماره تماس:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 225);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(39, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "آدرس:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 93);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(53, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "نام کاربر:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 41);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(48, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "کاربران:";
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.GridColor = System.Drawing.Color.Cyan;
+            this.dataGridView2.Location = new System.Drawing.Point(884, 435);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(285, 238);
+            this.dataGridView2.TabIndex = 9;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // FrmStartup
             // 
@@ -278,6 +296,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1169, 675);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSabt);
@@ -287,13 +306,13 @@
             this.Controls.Add(this.btn_Sabt_order);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmStartup";
-            this.Text = "FrmStartup";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FrmStartup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -321,6 +340,7 @@
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 

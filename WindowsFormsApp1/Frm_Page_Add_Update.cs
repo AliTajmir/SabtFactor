@@ -25,6 +25,7 @@ namespace WindowsFormsApp1
             id = _id;
             Frm = _frm;
             op_Product = _op_Product;
+           
         }
 
         private async void Frm_Page_Add_Update_Load(object sender, EventArgs e)
@@ -58,9 +59,10 @@ namespace WindowsFormsApp1
 
                 op_Product.AddData(products);
                 this.Close();
-                Frm.Form1_Load(null,null);
-                
-                
+                Frm.FrmStartup_Load(null,null);
+
+
+
             }
             else
             {
@@ -74,9 +76,8 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("کالا با موفقیت آپدیت شد");
                     this.Close();
-                    
-                    Frm.Form1_Load(null, null);
-                   
+                    Frm.FrmStartup_Load(null, null);
+
                 }
                 else
                 {

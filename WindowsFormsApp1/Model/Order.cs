@@ -10,14 +10,13 @@ namespace WindowsFormsApp1
 {
   public  class Order
     {
-        //public Order(string _User_name,string _Product_name,int _Product_id,int _User_id,int _Price)
-        //{
-        //    this.User_id = _User_id;
-        //    //this.User_name = _User_name;
-        //    this.Product_id = _Product_id;
-        //    //this.Product_name = _Product_name;
-        //    //this.Price = _Price;
-        //}
+        public Order(int _Count , int _Product_id, int _User_id)
+        {
+            this.User_id = _User_id;
+            this.Count =_Count ;
+            this.Product_id = _Product_id;
+           
+        }
         [Key]
         public int id { get; set; }
         [ForeignKey("Products")]

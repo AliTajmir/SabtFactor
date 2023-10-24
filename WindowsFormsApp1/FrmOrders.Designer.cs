@@ -37,7 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnChange_order = new System.Windows.Forms.Button();
+            this.btnChange_Count_order = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -99,7 +99,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lblPrice);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnChange_order);
+            this.groupBox1.Controls.Add(this.btnChange_Count_order);
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Location = new System.Drawing.Point(6, 359);
             this.groupBox1.Name = "groupBox1";
@@ -135,15 +135,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "تعداد کالای سفارش داده شده";
             // 
-            // btnChange_order
+            // btnChange_Count_order
             // 
-            this.btnChange_order.Location = new System.Drawing.Point(153, 72);
-            this.btnChange_order.Name = "btnChange_order";
-            this.btnChange_order.Size = new System.Drawing.Size(199, 68);
-            this.btnChange_order.TabIndex = 1;
-            this.btnChange_order.Text = "تغییر تعداد سفارش";
-            this.btnChange_order.UseVisualStyleBackColor = true;
-            this.btnChange_order.Click += new System.EventHandler(this.btnChange_order_Click);
+            this.btnChange_Count_order.Location = new System.Drawing.Point(153, 72);
+            this.btnChange_Count_order.Name = "btnChange_Count_order";
+            this.btnChange_Count_order.Size = new System.Drawing.Size(199, 68);
+            this.btnChange_Count_order.TabIndex = 1;
+            this.btnChange_Count_order.Text = "تغییر تعداد سفارش";
+            this.btnChange_Count_order.UseVisualStyleBackColor = true;
+            this.btnChange_Count_order.Click += new System.EventHandler(this.btnChange_Count_order_Click);
             // 
             // label1
             // 
@@ -169,7 +169,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmOrders";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Load += new System.EventHandler(this.FrmOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -191,6 +191,6 @@
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnChange_order;
+        private System.Windows.Forms.Button btnChange_Count_order;
     }
 }

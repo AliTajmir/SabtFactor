@@ -26,12 +26,21 @@ namespace WindowsFormsApp1
         public async Task<T> GetItem(int id)
         {
             return await db.Set<T>().FindAsync(id);
+            
         }
-        public async void delete(int id) 
+        public async Task<Exception>  delete(int id) 
         {
-            var item =await GetItem(id);
-            db.Set<T>().Remove(item);
-            db.SaveChanges();
+            try
+            {
+                var item = await GetItem(id);
+                db.Set<T>().Remove(item);
+                db.SaveChanges();
+                return null;
+            }
+            catch(Exception er)
+            {
+                return er;
+            }
         }
         public  bool Up(T item)
         {
