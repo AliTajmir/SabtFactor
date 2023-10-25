@@ -7,28 +7,36 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-  public   class Operation <T> where T:class
+    public class Operation<T> where T : class
     {
         ContextDb db;
         public Operation()
         {
             db = new ContextDb();
         }
-        public  void AddData(T item) 
+        public async Task<bool> AddData(T item)
         {
-            db.Set<T>().Add(item);
-            db.SaveChanges();
+            try
+            {
+                db.Set<T>().Add(item);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
-        public async Task<List<T>> GetList() 
+        public async Task<List<T>> GetList()
         {
             return await db.Set<T>().ToListAsync();
         }
         public async Task<T> GetItem(int id)
         {
+
             return await db.Set<T>().FindAsync(id);
-            
         }
-        public async Task<Exception>  delete(int id) 
+        public async Task<Exception> delete(int id)
         {
             try
             {
@@ -37,27 +45,27 @@ namespace WindowsFormsApp1
                 db.SaveChanges();
                 return null;
             }
-            catch(Exception er)
+            catch (Exception er)
             {
                 return er;
             }
         }
-        public  bool Up(T item)
+        public bool Up(T item)
         {
-            //try
-            //{
-                
+            try
+            {
+
 
                 db.Entry(item).CurrentValues.SetValues(item);
-               db.SaveChanges();
-                return true;
-            //}
-            //catch
-            //{
-                
-            //    return false;
-            //}
+            db.SaveChanges();
+            return true;
+            }
+            catch
+            {
+
+                return false;
+            }
         }
-       
+
     }
 }

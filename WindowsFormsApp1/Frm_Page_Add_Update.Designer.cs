@@ -34,8 +34,8 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtCount = new System.Windows.Forms.TextBox();
             this.txtNameProduct = new System.Windows.Forms.TextBox();
-            this.btn_Cancel = new System.Windows.Forms.Button();
-            this.btn_Sabt = new System.Windows.Forms.Button();
+            this.btn_Cancel = new DevComponents.DotNetBar.ButtonX();
+            this.btn_Sabt = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
             // 
             // label6
@@ -91,31 +91,39 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(340, 318);
+            this.btn_Cancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Cancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Cancel.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel.Location = new System.Drawing.Point(341, 312);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(102, 68);
-            this.btn_Cancel.TabIndex = 13;
+            this.btn_Cancel.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_Cancel.Size = new System.Drawing.Size(127, 74);
+            this.btn_Cancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Cancel.TabIndex = 14;
             this.btn_Cancel.Text = "انصراف";
-            this.btn_Cancel.UseVisualStyleBackColor = true;
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click_1);
             // 
             // btn_Sabt
             // 
-            this.btn_Sabt.Location = new System.Drawing.Point(214, 318);
+            this.btn_Sabt.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Sabt.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Sabt.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sabt.Location = new System.Drawing.Point(179, 312);
             this.btn_Sabt.Name = "btn_Sabt";
-            this.btn_Sabt.Size = new System.Drawing.Size(102, 68);
-            this.btn_Sabt.TabIndex = 13;
+            this.btn_Sabt.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_Sabt.Size = new System.Drawing.Size(147, 74);
+            this.btn_Sabt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Sabt.TabIndex = 15;
             this.btn_Sabt.Text = "ثبت";
-            this.btn_Sabt.UseVisualStyleBackColor = true;
-            this.btn_Sabt.Click += new System.EventHandler(this.btn_Sabt_Click);
+            this.btn_Sabt.Click += new System.EventHandler(this.btn_Sabt_Click_1);
             // 
             // Frm_Page_Add_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 450);
-            this.Controls.Add(this.btn_Sabt);
             this.Controls.Add(this.btn_Cancel);
+            this.Controls.Add(this.btn_Sabt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -138,7 +146,7 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtCount;
         private System.Windows.Forms.TextBox txtNameProduct;
-        private System.Windows.Forms.Button btn_Cancel;
-        private System.Windows.Forms.Button btn_Sabt;
+        private DevComponents.DotNetBar.ButtonX btn_Cancel;
+        private DevComponents.DotNetBar.ButtonX btn_Sabt;
     }
 }

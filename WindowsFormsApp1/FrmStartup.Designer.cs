@@ -33,6 +33,8 @@
             this.comboUser = new System.Windows.Forms.ComboBox();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddUser = new DevComponents.DotNetBar.ButtonX();
+            this.btnDeleteUser = new DevComponents.DotNetBar.ButtonX();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,17 +44,16 @@
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_search = new DevComponents.DotNetBar.ButtonX();
             this.dataGridViewX1 = new Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX();
             this.dataGridViewX2 = new Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX();
-            this.btnDeleteUser = new DevComponents.DotNetBar.ButtonX();
-            this.btnAddUser = new DevComponents.DotNetBar.ButtonX();
-            this.btn_search = new DevComponents.DotNetBar.ButtonX();
             this.btn_ShowOrders = new DevComponents.DotNetBar.ButtonX();
             this.btn_Sabt_order = new DevComponents.DotNetBar.ButtonX();
             this.btnDelete_Pish_Factor = new DevComponents.DotNetBar.ButtonX();
             this.btnDelete = new DevComponents.DotNetBar.ButtonX();
             this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
             this.btnSabt = new DevComponents.DotNetBar.ButtonX();
+            this.btn_Empty_txt = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
@@ -79,6 +80,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_Empty_txt);
             this.groupBox1.Controls.Add(this.btnAddUser);
             this.groupBox1.Controls.Add(this.btnDeleteUser);
             this.groupBox1.Controls.Add(this.label5);
@@ -96,44 +98,77 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "قسمت کاربران";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddUser.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.Location = new System.Drawing.Point(420, 108);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnAddUser.Size = new System.Drawing.Size(145, 62);
+            this.btnAddUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddUser.TabIndex = 10;
+            this.btnAddUser.Text = "اضافه کردن کاربر";
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click_1);
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDeleteUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteUser.Location = new System.Drawing.Point(420, 38);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnDeleteUser.Size = new System.Drawing.Size(145, 62);
+            this.btnDeleteUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDeleteUser.TabIndex = 10;
+            this.btnDeleteUser.Text = "حذف کاربر";
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click_1);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(35, 41);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(48, 17);
+            this.label5.Size = new System.Drawing.Size(49, 18);
             this.label5.TabIndex = 6;
             this.label5.Text = "کاربران:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(30, 93);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.Size = new System.Drawing.Size(54, 18);
             this.label4.TabIndex = 6;
             this.label4.Text = "نام کاربر:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(41, 225);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(39, 17);
+            this.label3.Size = new System.Drawing.Size(40, 18);
             this.label3.TabIndex = 6;
             this.label3.Text = "آدرس:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(28, 155);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "شماره تماس:";
             // 
@@ -164,9 +199,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(221, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.Size = new System.Drawing.Size(41, 18);
             this.label1.TabIndex = 6;
             this.label1.Text = "نام کالا";
             // 
@@ -183,6 +219,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
             // 
+            // btn_search
+            // 
+            this.btn_search.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_search.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_search.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search.Location = new System.Drawing.Point(15, 89);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_search.Size = new System.Drawing.Size(252, 74);
+            this.btn_search.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_search.TabIndex = 10;
+            this.btn_search.Text = "جستجوی کالا";
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click_1);
+            // 
             // dataGridViewX1
             // 
             this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -195,7 +245,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(17, 16);
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -226,48 +276,6 @@
             this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewX2.Size = new System.Drawing.Size(273, 238);
             this.dataGridViewX2.TabIndex = 10;
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDeleteUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDeleteUser.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteUser.Location = new System.Drawing.Point(420, 38);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
-            this.btnDeleteUser.Size = new System.Drawing.Size(145, 62);
-            this.btnDeleteUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDeleteUser.TabIndex = 10;
-            this.btnDeleteUser.Text = "حذف کاربر";
-            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click_1);
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddUser.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.Location = new System.Drawing.Point(420, 108);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
-            this.btnAddUser.Size = new System.Drawing.Size(145, 62);
-            this.btnAddUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddUser.TabIndex = 10;
-            this.btnAddUser.Text = "اضافه کردن کاربر";
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click_1);
-            // 
-            // btn_search
-            // 
-            this.btn_search.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_search.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_search.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.Location = new System.Drawing.Point(15, 89);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
-            this.btn_search.Size = new System.Drawing.Size(252, 74);
-            this.btn_search.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_search.TabIndex = 10;
-            this.btn_search.Text = "جستجوی کالا";
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click_1);
             // 
             // btn_ShowOrders
             // 
@@ -353,6 +361,20 @@
             this.btnSabt.Text = "ثبت کالا";
             this.btnSabt.Click += new System.EventHandler(this.btnSabt_Click_1);
             // 
+            // btn_Empty_txt
+            // 
+            this.btn_Empty_txt.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Empty_txt.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Empty_txt.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Empty_txt.Location = new System.Drawing.Point(420, 176);
+            this.btn_Empty_txt.Name = "btn_Empty_txt";
+            this.btn_Empty_txt.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_Empty_txt.Size = new System.Drawing.Size(145, 62);
+            this.btn_Empty_txt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Empty_txt.TabIndex = 10;
+            this.btn_Empty_txt.Text = "خالی کردن ";
+            this.btn_Empty_txt.Click += new System.EventHandler(this.btn_Empty_txt_Click);
+            // 
             // FrmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -405,6 +427,7 @@
         private DevComponents.DotNetBar.ButtonX btnDelete;
         private DevComponents.DotNetBar.ButtonX btnUpdate;
         private DevComponents.DotNetBar.ButtonX btnSabt;
+        private DevComponents.DotNetBar.ButtonX btn_Empty_txt;
     }
 }
 

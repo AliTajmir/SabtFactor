@@ -17,6 +17,10 @@ namespace WindowsFormsApp1
             this.Product_id = _Product_id;
            
         }
+        public Order()
+        {
+                
+        }
         [Key]
         public int id { get; set; }
         [ForeignKey("Products")]

@@ -151,7 +151,7 @@ namespace WindowsFormsApp1
             FormLoad();
         }
 
-        private  void btnAddUser_Click_1(object sender, EventArgs e)
+        private async  void btnAddUser_Click_1(object sender, EventArgs e)
         {
             User user = new User()
             {
@@ -159,8 +159,20 @@ namespace WindowsFormsApp1
                 PhoneNumber = txtPhoneNumber.Text,
                 Adres = txtAdres.Text
             };
-            op_User.AddData(user);
-            FrmStartup_Load(null, null);
+          var check= await op_User.AddData(user);
+            if (check == true)
+            {
+                MessageBox.Show("کاربر ثبت گردید");
+                FrmStartup_Load(null, null);
+                
+            }
+            else
+            {
+                MessageBox.Show("مشکلی در ثبت کاربر به وجود آمد");
+
+            }
+            
+
         }
 
         private void btn_search_Click_1(object sender, EventArgs e)
@@ -262,6 +274,21 @@ namespace WindowsFormsApp1
         private void btnSabt_Click_1(object sender, EventArgs e)
         {
             new Frm_Page_Add_Update(0, null, op_Product, this).ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+        private void Empty_txt()
+        {
+            txtAdres.Text = "";
+            txtPhoneNumber.Text = "";
+            txtUser.Text = "";
+        }
+        private void btn_Empty_txt_Click(object sender, EventArgs e)
+        {
+            Empty_txt();
         }
     }
 }

@@ -20,7 +20,7 @@ C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Stimulsof
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Stimulsoft.Base.xml
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Stimulsoft.Controls.Win.xml
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Stimulsoft.Report.xml
-C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\DevComponents.DotNetBar2.dll
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\DevComponents.DotNetBar2.xml
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache

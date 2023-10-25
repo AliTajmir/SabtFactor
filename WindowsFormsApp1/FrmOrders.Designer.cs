@@ -169,7 +169,7 @@
             this.btn_Print.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Print.TabIndex = 11;
             this.btn_Print.Text = "چاپ";
-            this.btn_Print.Click += new System.EventHandler(this.btn_search_Click);
+          
             // 
             // btnChange_Count_order
             // 

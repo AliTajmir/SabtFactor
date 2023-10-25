@@ -40,12 +40,14 @@ namespace WindowsFormsApp1
            
         }
 
-        private void btn_Cancel_Click(object sender, EventArgs e)
+     
+
+        private void btn_Cancel_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private async  void btn_Sabt_Click(object sender, EventArgs e)
+        private async void btn_Sabt_Click_1(object sender, EventArgs e)
         {
             if (num == 0)
             {
@@ -57,21 +59,30 @@ namespace WindowsFormsApp1
 
                 };
 
-                op_Product.AddData(products);
-                this.Close();
-                Frm.FrmStartup_Load(null,null);
+                var check = await op_Product.AddData(products);
+                if (check == true)
+                {
+                    MessageBox.Show("کالا با موفقیت ثبت شد");
+
+                    this.Close();
+                    Frm.FrmStartup_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("مشکلی در ثبت کالا به وجود آمد");
+                }
 
 
 
             }
             else
             {
-                Products products =await op_Product.GetItem(id.Value);
+                Products products = await op_Product.GetItem(id.Value);
                 products.Name = txtNameProduct.Text;
                 products.Price = int.Parse(txtPrice.Text);
                 products.Count = int.Parse(txtCount.Text);
 
-              bool check= op_Product.Up(products);
+                bool check = op_Product.Up(products);
                 if (check == true)
                 {
                     MessageBox.Show("کالا با موفقیت آپدیت شد");

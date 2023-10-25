@@ -135,16 +135,13 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btn_Print_Click(object sender, EventArgs e)
-        {
-            
-        }
+     
 
-        private void btnChange_Count_order_Click_1(object sender, EventArgs e)
+        private async void btnChange_Count_order_Click_1(object sender, EventArgs e)
         {
-            Order item = db.Order.Find(GetIdDataGridView());
+            Order item =await op_order.GetItem(GetIdDataGridView());
             item.Count = int.Parse(numericUpDown1.Value.ToString());
-            db.SaveChanges();
+            var check = op_order.Up(item);
             FrmOrders_Load(null, null);
         }
 
@@ -166,9 +163,8 @@ namespace WindowsFormsApp1
             dataGridViewX1.DataSource = orderViewModels;
         }
 
-        private void btn_search_Click(object sender, EventArgs e)
-        {
+      
 
-        }
+      
     }
 }
