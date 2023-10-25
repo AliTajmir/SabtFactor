@@ -34,7 +34,24 @@ namespace WindowsFormsApp1
             dataGridViewX1.Columns[1].HeaderText = "نام کالا";
             dataGridViewX1.Columns[2].HeaderText = "قیمت";
             dataGridViewX1.Columns[3].HeaderText = "تعداد";
-           
+            try
+            {
+                dataGridViewX2.Columns[0].HeaderText = "ردیف";
+                dataGridViewX2.Columns[1].HeaderText = "نام کالا";
+                dataGridViewX2.Columns[2].HeaderText = "نام کاربر";
+                dataGridViewX2.Columns[0].Width = 35;
+                dataGridViewX2.Columns[1].Width = 75;
+                dataGridViewX2.Columns[2].Width = 80;
+                dataGridViewX2.Columns[3].Visible = false;
+                dataGridViewX2.Columns[4].Visible = false;
+                dataGridViewX2.Columns[5].Visible = false;
+
+
+            }
+            catch
+            {
+
+            }
 
         }
       
@@ -96,7 +113,7 @@ namespace WindowsFormsApp1
         }
        
 
-      
+     
 
        
         private async void FormLoad()
@@ -153,25 +170,35 @@ namespace WindowsFormsApp1
 
         private async  void btnAddUser_Click_1(object sender, EventArgs e)
         {
-            User user = new User()
+           var checkNameExists= db.User.Any(x => x.Name == txtUser.Text);
+            if (checkNameExists == false)
             {
-                Name = txtUser.Text,
-                PhoneNumber = txtPhoneNumber.Text,
-                Adres = txtAdres.Text
-            };
-          var check= await op_User.AddData(user);
-            if (check == true)
-            {
-                MessageBox.Show("کاربر ثبت گردید");
-                FrmStartup_Load(null, null);
-                
+
+
+                User user = new User()
+                {
+                    Name = txtUser.Text,
+                    PhoneNumber = txtPhoneNumber.Text,
+                    Adres = txtAdres.Text
+                };
+                var check = await op_User.AddData(user);
+                if (check == true)
+                {
+                    MessageBox.Show("کاربر ثبت گردید");
+                    FrmStartup_Load(null, null);
+
+                }
+                else
+                {
+                    MessageBox.Show("مشکلی در ثبت کاربر به وجود آمد");
+
+                }
             }
             else
             {
-                MessageBox.Show("مشکلی در ثبت کاربر به وجود آمد");
-
+                MessageBox.Show("این کاربر قبلا به ثبت رسیده است");
+                Empty_txt();
             }
-            
 
         }
 
@@ -217,47 +244,64 @@ namespace WindowsFormsApp1
 
                     int id = GetIdGridView();
                     var item = db.Products.Find(id);
-                    if (comboUser.Items.Count > 0)
+                    var check_NameKala_Exists = list.Any(x => x.NameKala == item.Name);
+                    if (check_NameKala_Exists == false)
                     {
-                        id_combo = (int)comboUser.SelectedValue;
-
-                        OrderViewModel orderViewModel = new OrderViewModel()
+                        if (comboUser.Items.Count > 0)
                         {
-                            id = item.id,
-                            NameKala = item.Name,
-                            count = 1,
-                            Price = item.Price,
-                            UserName = comboUser.Text
+                            id_combo = (int)comboUser.SelectedValue;
+
+                            OrderViewModel orderViewModel = new OrderViewModel()
+                            {
+                                id = item.id,
+                                NameKala = item.Name,
+                                count = 1,
+                                Price = item.Price,
+                                UserName = comboUser.Text
 
 
-                        };
+                            };
 
 
-                        list.Add(orderViewModel);
+                            list.Add(orderViewModel);
 
-                        dataGridViewX2.DataSource = list.ToList();
-                        var message = item != null ? MessageBox.Show("یک کالا اضافه شد") : MessageBox.Show("به مشکل خورد");
-                        dataGridViewX1.SelectedRows[0].DefaultCellStyle.BackColor = Color.Yellow;
+                            dataGridViewX2.DataSource = list.ToList();
+                            SetName_DataGridView();
+                            var message = item != null ? MessageBox.Show("یک کالا اضافه شد") : MessageBox.Show("به مشکل خورد");
+                            dataGridViewX1.SelectedRows[0].DefaultCellStyle.BackColor = Color.Yellow;
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("کمبو کاربران خالی است لطفا با یوزر اضافه کنید");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("کمبو کاربران خالی است لطفا با یوزر اضافه کنید");
+                        MessageBox.Show("این کالا قبلا در لیست پیش فاکتور ثبت شده است");
                     }
                 }
                 catch (Exception er)
                 {
                     MessageBox.Show(er.Message.ToString());
                 }
+                
             }
         }
 
         private void btnDelete_Pish_Factor_Click_1(object sender, EventArgs e)
         {
-            var id = int.Parse(dataGridViewX2.CurrentRow.Cells[0].Value.ToString());
-            var item = list.Find(x => x.id == id);
-            list.Remove(item);
-            dataGridViewX2.DataSource = list;
+            try
+            {
+                var id = int.Parse(dataGridViewX2.CurrentRow.Cells[0].Value.ToString());
+                var item = list.Find(x => x.id == id);
+                list.Remove(item);
+                dataGridViewX2.DataSource = list;
+            }
+            catch
+            {
+
+            }
         }
 
         private async void btnDelete_Click_1(object sender, EventArgs e)
