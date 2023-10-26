@@ -1,14 +1,18 @@
-﻿using System;
+﻿
+using Grpc.Core;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Stripe;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
-using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Document = System.Reflection.Metadata.Document;
 
 namespace WindowsFormsApp1
 {
@@ -163,8 +167,16 @@ namespace WindowsFormsApp1
             dataGridViewX1.DataSource = orderViewModels;
         }
 
-      
+        private void btn_Print_Click(object sender, EventArgs e)
+        {
 
+            orderViewModels.ToPdf();
+
+
+
+
+        }
       
     }
+    
 }

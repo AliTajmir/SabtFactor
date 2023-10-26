@@ -34,12 +34,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
+            this.btnChange_Count_order = new DevComponents.DotNetBar.ButtonX();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.stiReport1 = new Stimulsoft.Report.StiReport();
             this.dataGridViewX1 = new Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX();
             this.btn_Print = new DevComponents.DotNetBar.ButtonX();
-            this.btnChange_Count_order = new DevComponents.DotNetBar.ButtonX();
             this.btn_Up_dg = new DevComponents.DotNetBar.ButtonX();
             this.btnDeleteOrder = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -96,6 +95,20 @@
             this.lblPrice.TabIndex = 5;
             this.lblPrice.Text = "...";
             // 
+            // btnChange_Count_order
+            // 
+            this.btnChange_Count_order.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnChange_Count_order.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnChange_Count_order.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange_Count_order.Location = new System.Drawing.Point(120, 82);
+            this.btnChange_Count_order.Name = "btnChange_Count_order";
+            this.btnChange_Count_order.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btnChange_Count_order.Size = new System.Drawing.Size(252, 74);
+            this.btnChange_Count_order.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnChange_Count_order.TabIndex = 11;
+            this.btnChange_Count_order.Text = "تغییر تعداد سفارش";
+            this.btnChange_Count_order.Click += new System.EventHandler(this.btnChange_Count_order_Click_1);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -114,26 +127,6 @@
             this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "نام کاربری:";
-            // 
-            // stiReport1
-            // 
-            this.stiReport1.EngineVersion = Stimulsoft.Report.Engine.StiEngineVersion.EngineV2;
-            this.stiReport1.ReferencedAssemblies = new string[] {
-        "System.Dll",
-        "System.Drawing.Dll",
-        "System.Windows.Forms.Dll",
-        "System.Data.Dll",
-        "System.Xml.Dll",
-        "Stimulsoft.Controls.Dll",
-        "Stimulsoft.Base.Dll",
-        "Stimulsoft.Report.Dll"};
-            this.stiReport1.ReportAlias = "گزارش";
-            this.stiReport1.ReportGuid = "9348886d6d04418a86f3d09cc375a2da";
-            this.stiReport1.ReportName = "گزارش";
-            this.stiReport1.ReportSource = null;
-            this.stiReport1.ReportUnit = Stimulsoft.Report.StiReportUnitType.Centimeters;
-            this.stiReport1.ScriptLanguage = Stimulsoft.Report.StiReportLanguageType.CSharp;
-            this.stiReport1.UseProgressInThread = false;
             // 
             // dataGridViewX1
             // 
@@ -169,21 +162,7 @@
             this.btn_Print.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Print.TabIndex = 11;
             this.btn_Print.Text = "چاپ";
-          
-            // 
-            // btnChange_Count_order
-            // 
-            this.btnChange_Count_order.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnChange_Count_order.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnChange_Count_order.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChange_Count_order.Location = new System.Drawing.Point(120, 82);
-            this.btnChange_Count_order.Name = "btnChange_Count_order";
-            this.btnChange_Count_order.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
-            this.btnChange_Count_order.Size = new System.Drawing.Size(252, 74);
-            this.btnChange_Count_order.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnChange_Count_order.TabIndex = 11;
-            this.btnChange_Count_order.Text = "تغییر تعداد سفارش";
-            this.btnChange_Count_order.Click += new System.EventHandler(this.btnChange_Count_order_Click_1);
+            this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
             // 
             // btn_Up_dg
             // 
@@ -246,7 +225,7 @@
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Stimulsoft.Report.StiReport stiReport1;
+        
         private Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX dataGridViewX1;
         private DevComponents.DotNetBar.ButtonX btn_Print;
         private DevComponents.DotNetBar.ButtonX btnChange_Count_order;

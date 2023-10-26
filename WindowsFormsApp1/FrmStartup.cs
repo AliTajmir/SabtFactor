@@ -213,7 +213,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btn_ShowOrders_Click_1(object sender, EventArgs e)
+        private async void btn_ShowOrders_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -221,7 +221,7 @@ namespace WindowsFormsApp1
                 {
                     Order order = new Order(item.count, item.id, id_combo);
 
-                    op_Order.AddData(order);
+                  await  op_Order.AddData(order);
                 }
                 MessageBox.Show("ثبت نهایی انجام شد ");
                 list.Clear();
