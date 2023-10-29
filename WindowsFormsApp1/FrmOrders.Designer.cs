@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,6 +38,7 @@
             this.dataGridViewX1 = new Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX();
             this.btn_Print = new DevComponents.DotNetBar.ButtonX();
             this.btnDeleteOrder = new DevComponents.DotNetBar.ButtonX();
+            this.btn_Go_to_Page_OrderUsers = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
@@ -111,14 +112,14 @@
             // 
             this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(6, 12);
             this.dataGridViewX1.Name = "dataGridViewX1";
@@ -134,10 +135,10 @@
             this.btn_Print.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Print.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btn_Print.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Print.Location = new System.Drawing.Point(448, 441);
+            this.btn_Print.Location = new System.Drawing.Point(410, 338);
             this.btn_Print.Name = "btn_Print";
             this.btn_Print.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
-            this.btn_Print.Size = new System.Drawing.Size(252, 74);
+            this.btn_Print.Size = new System.Drawing.Size(419, 74);
             this.btn_Print.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btn_Print.TabIndex = 11;
             this.btn_Print.Text = "ثبت نهایی و چاپ";
@@ -157,6 +158,20 @@
             this.btnDeleteOrder.Text = "حذف سفارش";
             this.btnDeleteOrder.Click += new System.EventHandler(this.btnDeleteOrder_Click_1);
             // 
+            // btn_Go_to_Page_OrderUsers
+            // 
+            this.btn_Go_to_Page_OrderUsers.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Go_to_Page_OrderUsers.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Go_to_Page_OrderUsers.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Go_to_Page_OrderUsers.Location = new System.Drawing.Point(410, 435);
+            this.btn_Go_to_Page_OrderUsers.Name = "btn_Go_to_Page_OrderUsers";
+            this.btn_Go_to_Page_OrderUsers.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_Go_to_Page_OrderUsers.Size = new System.Drawing.Size(677, 74);
+            this.btn_Go_to_Page_OrderUsers.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Go_to_Page_OrderUsers.TabIndex = 11;
+            this.btn_Go_to_Page_OrderUsers.Text = "رفتن به صفحه سفارشات مشتری ها";
+            this.btn_Go_to_Page_OrderUsers.Click += new System.EventHandler(this.btn_Go_to_Page_OrderUsers_Click);
+            // 
             // FrmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -164,6 +179,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1093, 527);
             this.Controls.Add(this.btnDeleteOrder);
+            this.Controls.Add(this.btn_Go_to_Page_OrderUsers);
             this.Controls.Add(this.btn_Print);
             this.Controls.Add(this.dataGridViewX1);
             this.Controls.Add(this.groupBox1);
@@ -189,5 +205,6 @@
         private DevComponents.DotNetBar.ButtonX btn_Print;
         private DevComponents.DotNetBar.ButtonX btnChange_Count_order;
         private DevComponents.DotNetBar.ButtonX btnDeleteOrder;
+        private DevComponents.DotNetBar.ButtonX btn_Go_to_Page_OrderUsers;
     }
 }

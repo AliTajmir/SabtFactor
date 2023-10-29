@@ -102,7 +102,7 @@ namespace WindowsFormsApp1
             
             var check =  orderViewModels.Remove(item);
             if (check != true)
-                MessageBox.Show("آیتمی برای حذف وجود ندارد");
+                MessageBox.Show("رکوردی برای حذف وجود ندارد");
             else
                 MessageBox.Show("یک رکورد حذف گردید");
 
@@ -128,14 +128,18 @@ foreach(var item in orderViewModels)
         }
         private void btn_Print_Click(object sender, EventArgs e)
         {
-            
+            Subtract_From_Count_Product();
             orderViewModels.ToPdf();
 
 
 
 
         }
-      
+
+        private void btn_Go_to_Page_OrderUsers_Click(object sender, EventArgs e)
+        {
+            new Frm_OrderUsers(db, op_User).ShowDialog();
+        }
     }
     
 }

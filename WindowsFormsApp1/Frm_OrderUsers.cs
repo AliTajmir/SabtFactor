@@ -106,11 +106,16 @@ namespace WindowsFormsApp1
 
         private async void combo_Search_UserName_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private async void combo_Search_UserName_SelectedValueChanged(object sender, EventArgs e)
+        {
             try
             {
                 int id = (int)combo_Search_UserName.SelectedValue;
-                
-                dataGridViewX1.DataSource =await GetListOrder(id);
+
+                dataGridViewX1.DataSource = await GetListOrder(id);
                 new FrmOrders(null, null, null, null).SumPriceOrders(list);
 
 
