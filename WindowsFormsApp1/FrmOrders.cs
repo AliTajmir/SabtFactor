@@ -16,65 +16,25 @@ using Document = System.Reflection.Metadata.Document;
 
 namespace WindowsFormsApp1
 {
-    public partial class FrmOrders : Form
+    public  partial class FrmOrders : Form
     {
-        private readonly ContextDb db;
-        private Operation<Order> op_order;
-        private readonly Operation<User> op_User;
+        private  ContextDb db;
+        private  Operation<Order> op_order;
+        private  Operation<User> op_User;
         private  List<OrderViewModel> orderViewModels;
-        public FrmOrders(ContextDb _db, Operation<Order> _op_order,Operation<User> _op_User)
+        public FrmOrders(ContextDb _db, Operation<Order> _op_order,Operation<User> _op_User,List<OrderViewModel> _orderViewModels)
         {
             InitializeComponent();
             op_order = _op_order;
             op_User = _op_User;
             db = _db;
+            orderViewModels = _orderViewModels;
         }
 
 
       
 
-        public async Task<List<OrderViewModel>> GetListOrder(int? User_id)
-        {
-            //orderViewModels.Clear();
-            try
-            {
-                if (User_id ==null)
-                {
-                    orderViewModels = await db.Order
-              .Include(o => o.Products).Include(o => o.User).Select(o => new OrderViewModel
-              {
-                  id = o.id,
-                  NameKala = o.Products.Name,
-                  count = o.Count,
-                  Price = o.Products.Price,
-                  UserName = o.User.Name
-              }).ToListAsync();
-                }
-               else
-                {
-                    orderViewModels = await db.Order.Where(x => x.User_id == User_id.Value).Include(x => x.Products).Include(x => x.User).Select(x => new OrderViewModel()
-                    {
-                        id = x.id,
-                        NameKala = x.Products.Name,
-                        count = x.Count,
-                        Price = x.Products.Price,
-                        UserName = x.User.Name
-
-                    }).ToListAsync();
-
-
-                }
-
-                
-
-
-                return orderViewModels;
-            }
-            catch
-            {
-                return null;
-            }
-        }
+       
         private void SetName_DataGridView()
         {
             dataGridViewX1.Columns[0].HeaderText = "شماره سفارش";
@@ -82,7 +42,9 @@ namespace WindowsFormsApp1
             dataGridViewX1.Columns[2].HeaderText = "نام کاربر";
             dataGridViewX1.Columns[3].HeaderText = "قیمت";
             dataGridViewX1.Columns[4].HeaderText = "تعداد کالا";
-            dataGridViewX1.Columns[5].HeaderText = "قیمت کل";
+            dataGridViewX1.Columns[5].Visible = false;
+            dataGridViewX1.Columns[6].Visible = false;
+            dataGridViewX1.Columns[7].HeaderText = "قیمت کل";
         }
         private int GetIdDataGridView()
         {
@@ -93,67 +55,54 @@ namespace WindowsFormsApp1
        
       
 
-        private async void combo_Search_UserName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int id = (int)combo_Search_UserName.SelectedValue;
-                orderViewModels = await GetListOrder(id);
-                dataGridViewX1.DataSource = orderViewModels.ToList();
-
-
-
-            }
-            catch
-            {
-                
-            }
-            
-        }
+       
 
       
 
-     
+     public  void SumPriceOrders( List<OrderViewModel> orderViewModels)
+        {
+            var Sum = orderViewModels.Sum(x => x.Total).ToString();
+            lblSumPrice.Text= Sum;
+        }
 
        
 
-        private async void FrmOrders_Load(object sender, EventArgs e)
+        private  void FrmOrders_Load(object sender, EventArgs e)
         {
-            try
-            {
-                if (combo_Search_UserName.Items.Count == 0)
-                {
-                    combo_Search_UserName.DataSource = await op_User.GetList();
-                    combo_Search_UserName.DisplayMember = "Name";
-                    combo_Search_UserName.ValueMember = "id";
-                }
-                orderViewModels = await GetListOrder(null);
-
-                dataGridViewX1.DataSource = orderViewModels;
-                SetName_DataGridView();
-
-            }
-            catch (Exception er)
-            {
-                MessageBox.Show(er.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            dataGridViewX1.DataSource = orderViewModels.ToList();
+            SetName_DataGridView();
         }
 
      
 
-        private async void btnChange_Count_order_Click_1(object sender, EventArgs e)
+        private  void btnChange_Count_order_Click_1(object sender, EventArgs e)
         {
-            Order item =await op_order.GetItem(GetIdDataGridView());
-            item.Count = int.Parse(numericUpDown1.Value.ToString());
-            var check = op_order.Up(item);
+            var id = GetIdDataGridView();
+            var item = db.Products.Find(id);
+            if (item.Count >= numericUpDown1.Value)
+            {
+                var item2 = orderViewModels.Find(x => x.id == id);
+
+                item2.count = int.Parse( numericUpDown1.Value.ToString());
+                
+            }
+            else
+            {
+                MessageBox.Show("عدد بزرگتر از تعداد کالا است");
+            }
+
+            new FrmOrders(null,null,null,null).SumPriceOrders(orderViewModels);
             FrmOrders_Load(null, null);
+           
         }
 
-        private async void btnDeleteOrder_Click_1(object sender, EventArgs e)
+        private  void btnDeleteOrder_Click_1(object sender, EventArgs e)
         {
-            var check = await op_order.delete(GetIdDataGridView());
-            if (check != null)
-                MessageBox.Show(check.Message);
+            var item = orderViewModels.Find(x => x.id == GetIdDataGridView());
+            
+            var check =  orderViewModels.Remove(item);
+            if (check != true)
+                MessageBox.Show("آیتمی برای حذف وجود ندارد");
             else
                 MessageBox.Show("یک رکورد حذف گردید");
 
@@ -161,15 +110,25 @@ namespace WindowsFormsApp1
             FrmOrders_Load(null, null);
         }
 
-        private async void btn_Up_dg_Click_1(object sender, EventArgs e)
+       
+        private async void Subtract_From_Count_Product()
         {
-            orderViewModels = await GetListOrder(null);
-            dataGridViewX1.DataSource = orderViewModels;
+foreach(var item in orderViewModels)
+            {
+                Order order = new Order()
+                {
+                    Count=item.count,
+                    Product_id=item.Kala_Id,
+                    User_id=item.User_Id
+                };
+                await op_order.AddData(order);
+               var i=await db.Products.FindAsync(item.id);
+                i.Count -= item.count;
+            }
         }
-
         private void btn_Print_Click(object sender, EventArgs e)
         {
-
+            
             orderViewModels.ToPdf();
 
 

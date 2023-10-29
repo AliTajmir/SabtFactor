@@ -14,6 +14,9 @@ namespace WindowsFormsApp1
         public int Price { get; set; }
         public int count { get; set; }
 
+        public int User_Id { get; set; }
+        public int Kala_Id { get; set; }
+
         public int Total { get { return this.Price * this.count; } }
     }
 }

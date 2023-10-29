@@ -213,21 +213,22 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async void btn_ShowOrders_Click_1(object sender, EventArgs e)
+        private  void btn_ShowOrders_Click_1(object sender, EventArgs e)
         {
             try
             {
-                foreach (var item in list)
-                {
-                    Order order = new Order(item.count, item.id, id_combo);
+                //foreach (var item in list)
+                //{
+                //    Order order = new Order(item.count, item.id, id_combo);
 
-                  await  op_Order.AddData(order);
-                }
-                MessageBox.Show("ثبت نهایی انجام شد ");
+                //  await  op_Order.AddData(order);
+                //}
+                //MessageBox.Show("ثبت نهایی انجام شد ");
+                
+                //new Form2(op_Order,op_Product,op_User).ShowDialog();
+                new FrmOrders(db, op_Order, op_User,list).ShowDialog();
                 list.Clear();
                 dataGridViewX2.DataSource = list;
-                //new Form2(op_Order,op_Product,op_User).ShowDialog();
-                new FrmOrders(db, op_Order, op_User).ShowDialog();
             }
             catch (Exception er)
             {
@@ -257,7 +258,9 @@ namespace WindowsFormsApp1
                                 NameKala = item.Name,
                                 count = 1,
                                 Price = item.Price,
-                                UserName = comboUser.Text
+                                UserName = comboUser.Text,
+                                Kala_Id=item.id,
+                                User_Id= id_combo
 
 
                             };
@@ -296,7 +299,7 @@ namespace WindowsFormsApp1
                 var id = int.Parse(dataGridViewX2.CurrentRow.Cells[0].Value.ToString());
                 var item = list.Find(x => x.id == id);
                 list.Remove(item);
-                dataGridViewX2.DataSource = list;
+                dataGridViewX2.DataSource = list.ToList();
             }
             catch
             {

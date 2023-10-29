@@ -55,4 +55,11 @@ C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Nu
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Reflection.Metadata.xml
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\PdfSharp.Charting.dll
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\PdfSharp.dll
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\PdfSharp.xml
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\PdfSharp.Charting.xml
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\de\PdfSharp.Charting.resources.dll
 C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\a\Desktop\Project\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Frm_OrderUsers.resources

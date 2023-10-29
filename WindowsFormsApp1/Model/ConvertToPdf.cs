@@ -1,46 +1,39 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-  public static  class ConvertToPdf
+    public static class ConvertToPdf
     {
         public static void ToPdf(this List<OrderViewModel> models)
         {
             string CountOrders = models.Count.ToString();
-            string TotalPrice = models.Select(x => new { total = x.Total }).Sum(x => x.total).ToString();
-            Document document = new Document();
+            decimal TotalPrice = models.Sum(x => x.Total);
+            string filePath = "file.pdf";
 
-            // Set the file stream and writer
-            //FileStream fs = new FileStream("Invoice.pdf", FileMode.Create);
+            using (FileStream fs = new FileStream(filePath, FileMode.Create))
+            {
+                using (Document document = new Document())
+                {
+                    PdfWriter writer = PdfWriter.GetInstance(document, fs);
 
-            FileStream fs = new FileStream("file.pdf", FileMode.Create);
-            
-                PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                    // Open the document for writing
+                    document.Open();
 
-            // Open the document for writing
+                    // Add content to the document
+                    document.Add(new Paragraph("Count Orders: " + CountOrders));
+                    document.Add(new Paragraph("Total Price: " + TotalPrice.ToString("C"))); // Format as currency
 
-            document.Open();
-            // Add content to the document
-            
-                document.Add(new Paragraph("Count Orders:" +CountOrders));
-                document.Add(new Paragraph("Total " +TotalPrice));
-               
-            
-
-
-            // Close the document
-            document.Close();
-            fs.Close();
-            writer.Close();
+                    // Close the document
+                    document.Close();
+                    writer.Close();
+                }
 
 
+            }
         }
     }
 }
