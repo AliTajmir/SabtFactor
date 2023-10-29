@@ -22,13 +22,15 @@ namespace WindowsFormsApp1
         private  Operation<Order> op_order;
         private  Operation<User> op_User;
         private  List<OrderViewModel> orderViewModels;
-        public FrmOrders(ContextDb _db, Operation<Order> _op_order,Operation<User> _op_User,List<OrderViewModel> _orderViewModels)
+        private FrmStartup frmStartup;
+        public FrmOrders(ContextDb _db, Operation<Order> _op_order,Operation<User> _op_User,List<OrderViewModel> _orderViewModels,FrmStartup _frmStartup)
         {
             InitializeComponent();
             op_order = _op_order;
             op_User = _op_User;
             db = _db;
             orderViewModels = _orderViewModels;
+            frmStartup = _frmStartup;
         }
 
 
@@ -91,7 +93,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("عدد بزرگتر از تعداد کالا است");
             }
 
-            new FrmOrders(null,null,null,null).SumPriceOrders(orderViewModels);
+            SumPriceOrders(orderViewModels);
             FrmOrders_Load(null, null);
            
         }
@@ -119,11 +121,13 @@ foreach(var item in orderViewModels)
                 {
                     Count=item.count,
                     Product_id=item.Kala_Id,
-                    User_id=item.User_Id
+                    User_id=item.User_Id,
+                    CreateDate=DateTime.Now.ToShamsi()
                 };
                 await op_order.AddData(order);
                var i=await db.Products.FindAsync(item.id);
                 i.Count -= item.count;
+                db.SaveChanges();
             }
         }
         private void btn_Print_Click(object sender, EventArgs e)
@@ -140,6 +144,15 @@ foreach(var item in orderViewModels)
         {
             new Frm_OrderUsers(db, op_User).ShowDialog();
         }
+
+        private  void FrmOrders_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           frmStartup.FormLoad();
+            
+
+        }
+
+       
     }
     
 }

@@ -14,28 +14,31 @@ namespace WindowsFormsApp1
     {
         List<OrderViewModel> list;
         Operation<User> op_User;
+
         ContextDb db;
-        public Frm_OrderUsers(ContextDb _db,Operation<User> _op_User)
+        public Frm_OrderUsers(ContextDb _db, Operation<User> _op_User)
         {
             InitializeComponent();
             db = _db;
             op_User = _op_User;
+
         }
 
         private async void Frm_OrderUsers_Load(object sender, EventArgs e)
         {
             try
             {
-                if (combo_Search_UserName.Items.Count == 0)
-                {
-                    combo_Search_UserName.DataSource = await op_User.GetList();
-                    combo_Search_UserName.DisplayMember = "Name";
-                    combo_Search_UserName.ValueMember = "id";
-                }
 
-                
+                combo_Search_UserName.DataSource = await op_User.GetList();
+                combo_Search_UserName.DisplayMember = "Name";
+                combo_Search_UserName.ValueMember = "id";
+
+
                 dataGridViewX1.DataSource = GetListOrder(null);
-
+                var items= list.Select(x => x.CreateDate).Distinct();
+                combo_Search_Date.DataSource = items;
+                combo_Search_Date.DisplayMember = "CreateDate";
+                combo_Search_Date.ValueMember = "id";
                 SetName_DataGridView();
 
             }
@@ -69,7 +72,9 @@ namespace WindowsFormsApp1
                   NameKala = o.Products.Name,
                   count = o.Count,
                   Price = o.Products.Price,
-                  UserName = o.User.Name
+                  UserName = o.User.Name,
+                  CreateDate = o.CreateDate
+
               }).ToListAsync();
                 }
                 else
@@ -80,8 +85,8 @@ namespace WindowsFormsApp1
                         NameKala = x.Products.Name,
                         count = x.Count,
                         Price = x.Products.Price,
-                        UserName = x.User.Name
-
+                        UserName = x.User.Name,
+                        CreateDate = x.CreateDate
                     }).ToListAsync();
 
 
@@ -101,12 +106,7 @@ namespace WindowsFormsApp1
         {
             list = await GetListOrder(null);
             dataGridViewX1.DataSource = list;
-            new FrmOrders(null, null, null, null).SumPriceOrders(list);
-        }
-
-        private async void combo_Search_UserName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+            new FrmOrders(null, null, null, null, null).SumPriceOrders(list);
         }
 
         private async void combo_Search_UserName_SelectedValueChanged(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace WindowsFormsApp1
                 int id = (int)combo_Search_UserName.SelectedValue;
 
                 dataGridViewX1.DataSource = await GetListOrder(id);
-                new FrmOrders(null, null, null, null).SumPriceOrders(list);
+                new FrmOrders(null, null, null, null, null).SumPriceOrders(list);
 
 
             }

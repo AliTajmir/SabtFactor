@@ -10,12 +10,12 @@ namespace WindowsFormsApp1
 {
   public  class Order
     {
-        public Order(int _Count , int _Product_id, int _User_id)
+        public Order(int _Count , int _Product_id, int _User_id,string _CreateDate)
         {
             this.User_id = _User_id;
             this.Count =_Count ;
             this.Product_id = _Product_id;
-           
+            this.CreateDate = _CreateDate;
         }
         public Order()
         {
@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
 
         public int User_id { get; set; }
         public int Count { get; set; }
+        public string CreateDate { get; set; }
 
         public virtual Products Products { get; set; }
         public virtual User User { get; set; }

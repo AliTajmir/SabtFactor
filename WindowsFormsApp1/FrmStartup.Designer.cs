@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboUser = new System.Windows.Forms.ComboBox();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Empty_txt = new DevComponents.DotNetBar.ButtonX();
             this.btnAddUser = new DevComponents.DotNetBar.ButtonX();
             this.btnDeleteUser = new DevComponents.DotNetBar.ButtonX();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.btnDelete = new DevComponents.DotNetBar.ButtonX();
             this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
             this.btnSabt = new DevComponents.DotNetBar.ButtonX();
-            this.btn_Empty_txt = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
@@ -99,6 +99,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "قسمت کاربران";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btn_Empty_txt
+            // 
+            this.btn_Empty_txt.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_Empty_txt.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_Empty_txt.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Empty_txt.Location = new System.Drawing.Point(420, 176);
+            this.btn_Empty_txt.Name = "btn_Empty_txt";
+            this.btn_Empty_txt.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
+            this.btn_Empty_txt.Size = new System.Drawing.Size(145, 62);
+            this.btn_Empty_txt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_Empty_txt.TabIndex = 10;
+            this.btn_Empty_txt.Text = "خالی کردن ";
+            this.btn_Empty_txt.Click += new System.EventHandler(this.btn_Empty_txt_Click);
             // 
             // btnAddUser
             // 
@@ -237,14 +251,14 @@
             // 
             this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(17, 16);
             this.dataGridViewX1.Name = "dataGridViewX1";
@@ -259,14 +273,14 @@
             // 
             this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX2.Location = new System.Drawing.Point(884, 435);
             this.dataGridViewX2.Name = "dataGridViewX2";
@@ -361,20 +375,6 @@
             this.btnSabt.Text = "ثبت کالا";
             this.btnSabt.Click += new System.EventHandler(this.btnSabt_Click_1);
             // 
-            // btn_Empty_txt
-            // 
-            this.btn_Empty_txt.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_Empty_txt.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Empty_txt.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Empty_txt.Location = new System.Drawing.Point(420, 176);
-            this.btn_Empty_txt.Name = "btn_Empty_txt";
-            this.btn_Empty_txt.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2, 10, 10, 2);
-            this.btn_Empty_txt.Size = new System.Drawing.Size(145, 62);
-            this.btn_Empty_txt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_Empty_txt.TabIndex = 10;
-            this.btn_Empty_txt.Text = "خالی کردن ";
-            this.btn_Empty_txt.Click += new System.EventHandler(this.btn_Empty_txt_Click);
-            // 
             // FrmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -392,6 +392,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmStartup";
+            this.Activated += new System.EventHandler(this.FrmStartup_Activated);
             this.Load += new System.EventHandler(this.FrmStartup_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -416,7 +417,6 @@
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX dataGridViewX1;
         private Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX dataGridViewX2;
         private DevComponents.DotNetBar.ButtonX btnDeleteUser;
         private DevComponents.DotNetBar.ButtonX btnAddUser;
@@ -428,6 +428,7 @@
         private DevComponents.DotNetBar.ButtonX btnUpdate;
         private DevComponents.DotNetBar.ButtonX btnSabt;
         private DevComponents.DotNetBar.ButtonX btn_Empty_txt;
+        public Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewX dataGridViewX1;
     }
 }
 

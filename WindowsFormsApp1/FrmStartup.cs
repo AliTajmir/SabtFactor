@@ -116,12 +116,12 @@ namespace WindowsFormsApp1
      
 
        
-        private async void FormLoad()
+        public async void FormLoad()
         {
             try
             {
 
-                dataGridViewX1.DataSource = await op_Product.GetList();
+                dataGridViewX1.DataSource = db.Products.ToList();
                 comboUser.DataSource = await op_User.GetList();
                 comboUser.DisplayMember = "Name";
                 comboUser.ValueMember = "id";
@@ -154,6 +154,12 @@ namespace WindowsFormsApp1
 
         public void FrmStartup_Load(object sender, EventArgs e)
         {
+
+            if (!db.Database.Exists())
+            {
+                db.Database.CreateIfNotExists();
+                MessageBox.Show("دیتابیس با موفقیت ساخته شد");
+            }
             FormLoad();
         }
 
@@ -226,7 +232,7 @@ namespace WindowsFormsApp1
                 //MessageBox.Show("ثبت نهایی انجام شد ");
                 
                 //new Form2(op_Order,op_Product,op_User).ShowDialog();
-                new FrmOrders(db, op_Order, op_User,list).ShowDialog();
+                new FrmOrders(db, op_Order, op_User,list,this).ShowDialog();
                 list.Clear();
                 dataGridViewX2.DataSource = list;
             }
@@ -336,6 +342,11 @@ namespace WindowsFormsApp1
         private void btn_Empty_txt_Click(object sender, EventArgs e)
         {
             Empty_txt();
+        }
+
+        private void FrmStartup_Activated(object sender, EventArgs e)
+        {
+            FormLoad();
         }
     }
 }

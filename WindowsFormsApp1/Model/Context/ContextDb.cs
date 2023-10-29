@@ -4,7 +4,7 @@ namespace WindowsFormsApp1
 {
     public  class ContextDb:DbContext
     {
-        //public Context():base("DbFactor")
+        //public ContextDb() : base("DbFactory")
         //{
 
         //}

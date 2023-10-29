@@ -150,12 +150,13 @@
     <Compile Include="Frm_Page_Add_Update.Designer.cs">
       <DependentUpon>Frm_Page_Add_Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310231729571_db.cs" />
-    <Compile Include="Migrations\202310231729571_db.designer.cs">
-      <DependentUpon>202310231729571_db.cs</DependentUpon>
+    <Compile Include="Migrations\202310291932241_db.cs" />
+    <Compile Include="Migrations\202310291932241_db.designer.cs">
+      <DependentUpon>202310291932241_db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\ContextDb.cs" />
+    <Compile Include="Model\ConvertDate.cs" />
     <Compile Include="Model\ConvertToPdf.cs" />
     <Compile Include="Model\Get_join.cs" />
     <Compile Include="Model\Operation\Operation.cs" />
@@ -177,8 +178,8 @@
     <EmbeddedResource Include="Frm_Page_Add_Update.resx">
       <DependentUpon>Frm_Page_Add_Update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310231729571_db.resx">
-      <DependentUpon>202310231729571_db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202310291932241_db.resx">
+      <DependentUpon>202310291932241_db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

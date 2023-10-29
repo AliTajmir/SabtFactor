@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
 
                     // Add content to the document
                     document.Add(new Paragraph("Count Orders: " + CountOrders));
-                    document.Add(new Paragraph("Total Price: " + TotalPrice.ToString("C"))); // Format as currency
+                    document.Add(new Paragraph("Total Price: " + TotalPrice.ToString())); // Format as currency
 
                     // Close the document
                     document.Close();
