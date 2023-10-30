@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class FrmStartup : Form
-    {        
+    {
         Operation<Products> op_Product;
         Operation<Order> op_Order;
         Operation<User> op_User;
@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
             op_User = new Operation<User>();
             db = new ContextDb();
             list = new List<OrderViewModel>();
-            
+
         }
         private void SetName_DataGridView()
         {
@@ -54,18 +54,18 @@ namespace WindowsFormsApp1
             }
 
         }
-      
+
 
         private void btn_Sabt_order_Click(object sender, EventArgs e)
         {
-           
+
 
 
         }
 
         private void btn_ShowOrders_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private async void comboUser_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,43 +88,46 @@ namespace WindowsFormsApp1
             }
         }
 
-       
+
 
         private void btnSabt_Click(object sender, EventArgs e)
         {
-          
+
 
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-         
+
         }
 
-        private void  btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-         
-         
+
+
         }
         public int GetIdGridView()
         {
             int id = int.Parse(dataGridViewX1.CurrentRow.Cells[0].Value.ToString());
-            return  id;
+            return id;
         }
-       
 
-     
 
-       
+
+
+
         public async void FormLoad()
         {
             try
             {
 
-                dataGridViewX1.DataSource = db.Products.ToList();
                 comboUser.DataSource = await op_User.GetList();
                 comboUser.DisplayMember = "Name";
                 comboUser.ValueMember = "id";
+
+
+                dataGridViewX1.DataSource = db.Products.ToList();
+
                 SetName_DataGridView();
             }
             catch (Exception ex)
@@ -132,7 +135,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("An error occurred while loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-      
+
 
         private void btnUpdate_Click_1(object sender, EventArgs e)
         {
@@ -165,7 +168,7 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Pish_Factor_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private async void btnDeleteUser_Click_1(object sender, EventArgs e)
@@ -174,9 +177,9 @@ namespace WindowsFormsApp1
             FormLoad();
         }
 
-        private async  void btnAddUser_Click_1(object sender, EventArgs e)
+        private async void btnAddUser_Click_1(object sender, EventArgs e)
         {
-           var checkNameExists= db.User.Any(x => x.Name == txtUser.Text);
+            var checkNameExists = db.User.Any(x => x.Name == txtUser.Text);
             if (checkNameExists == false)
             {
 
@@ -219,7 +222,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private  void btn_ShowOrders_Click_1(object sender, EventArgs e)
+        private void btn_ShowOrders_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -230,9 +233,9 @@ namespace WindowsFormsApp1
                 //  await  op_Order.AddData(order);
                 //}
                 //MessageBox.Show("ثبت نهایی انجام شد ");
-                
+
                 //new Form2(op_Order,op_Product,op_User).ShowDialog();
-                new FrmOrders(db, op_Order, op_User,list,this).ShowDialog();
+                new FrmOrders(db, op_Order, op_User, list, this).ShowDialog();
                 list.Clear();
                 dataGridViewX2.DataSource = list;
             }
@@ -244,7 +247,7 @@ namespace WindowsFormsApp1
 
         private void btn_Sabt_order_Click_1(object sender, EventArgs e)
         {
-            if (dataGridViewX1.SelectedCells.Count > 0)
+            if (dataGridViewX1.Rows.Count > 0)
             {
                 try
                 {
@@ -254,35 +257,42 @@ namespace WindowsFormsApp1
                     var check_NameKala_Exists = list.Any(x => x.NameKala == item.Name);
                     if (check_NameKala_Exists == false)
                     {
-                        if (comboUser.Items.Count > 0)
+                        if (item.Count > 0)
                         {
-                            id_combo = (int)comboUser.SelectedValue;
-
-                            OrderViewModel orderViewModel = new OrderViewModel()
+                            if (comboUser.Items.Count > 0)
                             {
-                                id = item.id,
-                                NameKala = item.Name,
-                                count = 1,
-                                Price = item.Price,
-                                UserName = comboUser.Text,
-                                Kala_Id=item.id,
-                                User_Id= id_combo
+                                id_combo = (int)comboUser.SelectedValue;
+
+                                OrderViewModel orderViewModel = new OrderViewModel()
+                                {
+                                    id = item.id,
+                                    NameKala = item.Name,
+                                    count = 1,
+                                    Price = item.Price,
+                                    UserName = comboUser.Text,
+                                    Kala_Id = item.id,
+                                    User_Id = id_combo
 
 
-                            };
+                                };
 
 
-                            list.Add(orderViewModel);
+                                list.Add(orderViewModel);
 
-                            dataGridViewX2.DataSource = list.ToList();
-                            SetName_DataGridView();
-                            var message = item != null ? MessageBox.Show("یک کالا اضافه شد") : MessageBox.Show("به مشکل خورد");
-                            dataGridViewX1.SelectedRows[0].DefaultCellStyle.BackColor = Color.Yellow;
+                                dataGridViewX2.DataSource = list.ToList();
+                                SetName_DataGridView();
+                                var message = item != null ? MessageBox.Show("یک کالا اضافه شد") : MessageBox.Show("به مشکل خورد");
+                                dataGridViewX1.CurrentRow.DefaultCellStyle.BackColor = Color.Yellow;
 
+                            }
+                            else
+                            {
+                                MessageBox.Show("کمبو کاربران خالی است لطفا با یوزر اضافه کنید");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("کمبو کاربران خالی است لطفا با یوزر اضافه کنید");
+                            MessageBox.Show("این کالا دیگر موجود نیست");
                         }
                     }
                     else
@@ -294,7 +304,7 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show(er.Message.ToString());
                 }
-                
+
             }
         }
 
@@ -344,9 +354,6 @@ namespace WindowsFormsApp1
             Empty_txt();
         }
 
-        private void FrmStartup_Activated(object sender, EventArgs e)
-        {
-            FormLoad();
-        }
+
     }
 }
