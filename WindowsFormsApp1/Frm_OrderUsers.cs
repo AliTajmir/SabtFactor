@@ -26,20 +26,21 @@ namespace WindowsFormsApp1
 
         private async void Frm_OrderUsers_Load(object sender, EventArgs e)
         {
+            dataGridViewX1.DataSource =await GetListOrder(null);
+            SetName_DataGridView();
             try
             {
 
                 combo_Search_UserName.DataSource = await op_User.GetList();
                 combo_Search_UserName.DisplayMember = "Name";
-                combo_Search_UserName.ValueMember = "id";
-
-
-                dataGridViewX1.DataSource = GetListOrder(null);
+                combo_Search_UserName.ValueMember = "id";               
+                
+               
                 var items= list.Select(x => x.CreateDate).Distinct();
                 combo_Search_Date.DataSource = items;
                 combo_Search_Date.DisplayMember = "CreateDate";
                 combo_Search_Date.ValueMember = "id";
-                SetName_DataGridView();
+                
 
             }
             catch (Exception er)
@@ -49,6 +50,7 @@ namespace WindowsFormsApp1
         }
         private void SetName_DataGridView()
         {
+            
             dataGridViewX1.Columns[0].HeaderText = "شماره سفارش";
             dataGridViewX1.Columns[1].HeaderText = "نام کالا";
             dataGridViewX1.Columns[2].HeaderText = "نام کاربر";
@@ -56,7 +58,8 @@ namespace WindowsFormsApp1
             dataGridViewX1.Columns[4].HeaderText = "تعداد کالا";
             dataGridViewX1.Columns[5].Visible = false;
             dataGridViewX1.Columns[6].Visible = false;
-            dataGridViewX1.Columns[7].HeaderText = "قیمت کل";
+            dataGridViewX1.Columns[7].HeaderText = "تاریخ ایجاد سفارش";
+            dataGridViewX1.Columns[8].HeaderText = "قیمت کل";
         }
         public async Task<List<OrderViewModel>> GetListOrder(int? User_id)
         {

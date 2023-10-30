@@ -46,7 +46,8 @@ namespace WindowsFormsApp1
             dataGridViewX1.Columns[4].HeaderText = "تعداد کالا";
             dataGridViewX1.Columns[5].Visible = false;
             dataGridViewX1.Columns[6].Visible = false;
-            dataGridViewX1.Columns[7].HeaderText = "قیمت کل";
+            dataGridViewX1.Columns[7].Visible = false;
+            dataGridViewX1.Columns[8].HeaderText = "قیمت کل";
         }
         private int GetIdDataGridView()
         {
