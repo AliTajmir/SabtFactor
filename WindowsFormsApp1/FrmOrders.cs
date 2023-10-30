@@ -131,16 +131,11 @@ foreach(var item in orderViewModels)
                 db.SaveChanges();
             }
         }
-        private void btn_Print_Click(object sender, EventArgs e)
+        private  void btn_Print_Click(object sender, EventArgs e)
         {
             Subtract_From_Count_Product();
             orderViewModels.ToPdf();
 
-                  
-
-                
-
-              
         }
 
 

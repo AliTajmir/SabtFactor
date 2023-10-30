@@ -117,7 +117,6 @@ C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\bin\Debug\System.R
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\bin\Debug\de\PdfSharp.Charting.resources.dll
-C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmStartup.resources
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrders.resources
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Frm_OrderUsers.resources
@@ -128,3 +127,4 @@ C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsF
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\a\Desktop\MyProject\SabtFactor-main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
