@@ -126,7 +126,7 @@ namespace WindowsFormsApp1
                 comboUser.ValueMember = "id";
 
 
-                dataGridViewX1.DataSource = db.Products.ToList();
+                dataGridViewX1.DataSource = await op_Product.GetList();
 
                 SetName_DataGridView();
             }

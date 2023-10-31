@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
                 products.Price = int.Parse(txtPrice.Text);
                 products.Count = int.Parse(txtCount.Text);
 
-                bool check = op_Product.Up(products);
+                bool check =await op_Product.Up(products);
                 if (check == true)
                 {
                     MessageBox.Show("کالا با موفقیت آپدیت شد");

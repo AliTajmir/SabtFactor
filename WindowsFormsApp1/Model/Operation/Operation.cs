@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
             try
             {
                 db.Set<T>().Add(item);
-                db.SaveChanges();
+              await  db.SaveChangesAsync();
                 return true;
             }
             catch
@@ -50,15 +50,15 @@ namespace WindowsFormsApp1
                 return er;
             }
         }
-        public bool Up(T item)
+        public async Task<bool> Up(T item)
         {
             try
             {
 
 
                 db.Entry(item).CurrentValues.SetValues(item);
-            db.SaveChanges();
-            return true;
+                await db.SaveChangesAsync();
+                  return  true;
             }
             catch
             {
