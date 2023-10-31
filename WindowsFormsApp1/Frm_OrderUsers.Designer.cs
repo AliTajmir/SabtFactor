@@ -88,17 +88,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 408);
+            this.label3.Location = new System.Drawing.Point(395, 356);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(125, 17);
+            this.label3.Size = new System.Drawing.Size(96, 17);
             this.label3.TabIndex = 18;
-            this.label3.Text = ":جمع قیمت کل سفارش ها";
+            this.label3.Text = "تاریخ ایجاد سفارش";
             // 
             // lblSumPrice
             // 
             this.lblSumPrice.AutoSize = true;
-            this.lblSumPrice.Location = new System.Drawing.Point(197, 408);
+            this.lblSumPrice.Location = new System.Drawing.Point(63, 467);
             this.lblSumPrice.Name = "lblSumPrice";
             this.lblSumPrice.Size = new System.Drawing.Size(20, 17);
             this.lblSumPrice.TabIndex = 19;
@@ -122,10 +122,11 @@
             this.combo_Search_Date.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.combo_Search_Date.FormattingEnabled = true;
             this.combo_Search_Date.ItemHeight = 16;
-            this.combo_Search_Date.Location = new System.Drawing.Point(273, 351);
+            this.combo_Search_Date.Location = new System.Drawing.Point(139, 351);
             this.combo_Search_Date.Name = "combo_Search_Date";
             this.combo_Search_Date.Size = new System.Drawing.Size(250, 22);
             this.combo_Search_Date.TabIndex = 21;
+            this.combo_Search_Date.SelectedIndexChanged += new System.EventHandler(this.combo_Search_Date_SelectedIndexChanged);
             // 
             // Frm_OrderUsers
             // 

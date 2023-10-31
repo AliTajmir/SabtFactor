@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
@@ -26,17 +23,17 @@ namespace WindowsFormsApp1
 
         private async void Frm_OrderUsers_Load(object sender, EventArgs e)
         {
-            dataGridViewX1.DataSource =await GetListOrder(null);
+            dataGridViewX1.DataSource = await GetListOrder(null);
             SetName_DataGridView();
             try
             {
 
                 combo_Search_UserName.DataSource = await op_User.GetList();
                 combo_Search_UserName.DisplayMember = "Name";
-                combo_Search_UserName.ValueMember = "id";               
+                combo_Search_UserName.ValueMember = "id";
                 
-               
-                var items= list.Select(x => x.CreateDate).Distinct();
+
+                var items= list.Select(x => x.CreateDate).Distinct().ToList();
                 combo_Search_Date.DataSource = items;
                 combo_Search_Date.DisplayMember = "CreateDate";
                 combo_Search_Date.ValueMember = "id";
@@ -105,10 +102,9 @@ namespace WindowsFormsApp1
                 return null;
             }
         }
-        private async void btn_Up_dg_Click(object sender, EventArgs e)
+        private  void btn_Up_dg_Click(object sender, EventArgs e)
         {
-            list = await GetListOrder(null);
-            dataGridViewX1.DataSource = list;
+            Frm_OrderUsers_Load(null, null);
             new FrmOrders(null, null, null, null, null).SumPriceOrders(list);
         }
 
@@ -127,6 +123,16 @@ namespace WindowsFormsApp1
             {
 
             }
+        }
+
+        private  void combo_Search_Date_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //int id = (int)combo_Search_UserName.SelectedValue;
+           
+           
+            dataGridViewX1.DataSource = list.Where(x => x.CreateDate == combo_Search_Date.Text).ToList();
+          
+
         }
     }
 }
