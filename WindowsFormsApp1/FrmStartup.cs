@@ -56,17 +56,7 @@ namespace WindowsFormsApp1
         }
 
 
-        private void btn_Sabt_order_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-        private void btn_ShowOrders_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private async void comboUser_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,30 +80,12 @@ namespace WindowsFormsApp1
 
 
 
-        private void btnSabt_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void btnAddUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-
-        }
+     
         public int GetIdGridView()
         {
             int id = int.Parse(dataGridViewX1.CurrentRow.Cells[0].Value.ToString());
             return id;
         }
-
-
-
 
 
         public async void FormLoad()
@@ -137,10 +109,7 @@ namespace WindowsFormsApp1
         }
 
 
-        private void btnUpdate_Click_1(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
@@ -150,10 +119,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         public void FrmStartup_Load(object sender, EventArgs e)
         {
@@ -166,10 +131,7 @@ namespace WindowsFormsApp1
             FormLoad();
         }
 
-        private void btnDelete_Pish_Factor_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private async void btnDeleteUser_Click_1(object sender, EventArgs e)
         {
@@ -226,15 +188,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                //foreach (var item in list)
-                //{
-                //    Order order = new Order(item.count, item.id, id_combo);
-
-                //  await  op_Order.AddData(order);
-                //}
-                //MessageBox.Show("ثبت نهایی انجام شد ");
-
-                //new Form2(op_Order,op_Product,op_User).ShowDialog();
+             
                 new FrmOrders(db, op_Order, op_User, list, this).ShowDialog();
                 list.Clear();
                 dataGridViewX2.DataSource = list;
@@ -339,10 +293,7 @@ namespace WindowsFormsApp1
             new Frm_Page_Add_Update(0, null, op_Product, this).ShowDialog();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
         private void Empty_txt()
         {
             txtAdres.Text = "";

@@ -19,16 +19,10 @@ namespace WindowsFormsApp1
             {
                 using (Document document = new Document())
                 {
-                    PdfWriter writer = PdfWriter.GetInstance(document, fs);
-
-                    // Open the document for writing
-                    document.Open();
-
-                    // Add content to the document
+                    PdfWriter writer = PdfWriter.GetInstance(document, fs);               
+                    document.Open();                  
                     document.Add(new Paragraph("Count Orders: " + CountOrders));
-                    document.Add(new Paragraph("Total Price: " + TotalPrice.ToString())); // Format as currency
-
-                    // Close the document
+                    document.Add(new Paragraph("Total Price: " + TotalPrice.ToString()));                    
                     document.Close();
                     writer.Close();
                     Process.Start(new ProcessStartInfo
