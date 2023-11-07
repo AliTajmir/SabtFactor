@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
             {
                 var item = await GetItem(id);
                 db.Set<T>().Remove(item);
-                db.SaveChanges();
+               await db.SaveChangesAsync();
                 return null;
             }
             catch (Exception er)

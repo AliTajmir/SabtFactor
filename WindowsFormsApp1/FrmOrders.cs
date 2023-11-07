@@ -16,14 +16,14 @@ using Document = System.Reflection.Metadata.Document;
 
 namespace WindowsFormsApp1
 {
-    public  partial class FrmOrders : Form
+    public partial class FrmOrders : Form
     {
-        private  ContextDb db;
-        private  Operation<Order> op_order;
-        private  Operation<User> op_User;
-        private  List<OrderViewModel> orderViewModels;
+        private ContextDb db;
+        private Operation<Order> op_order;
+        private Operation<User> op_User;
+        private List<OrderViewModel> orderViewModels;
         private FrmStartup frmStartup;
-        public FrmOrders(ContextDb _db, Operation<Order> _op_order,Operation<User> _op_User,List<OrderViewModel> _orderViewModels,FrmStartup _frmStartup)
+        public FrmOrders(ContextDb _db, Operation<Order> _op_order, Operation<User> _op_User, List<OrderViewModel> _orderViewModels, FrmStartup _frmStartup)
         {
             InitializeComponent();
             op_order = _op_order;
@@ -34,9 +34,9 @@ namespace WindowsFormsApp1
         }
 
 
-      
 
-       
+
+
         private void SetName_DataGridView()
         {
             dataGridViewX1.Columns[0].HeaderText = "شماره سفارش";
@@ -51,34 +51,34 @@ namespace WindowsFormsApp1
         }
         private int GetIdDataGridView()
         {
-            int id =int.Parse(dataGridViewX1.CurrentRow.Cells[0].Value.ToString());
-            return  id;
+            int id = int.Parse(dataGridViewX1.CurrentRow.Cells[0].Value.ToString());
+            return id;
 
         }
-       
-      
 
-       
 
-      
 
-     public  void SumPriceOrders( List<OrderViewModel> orderViewModels)
+
+
+
+
+        public void SumPriceOrders(List<OrderViewModel> orderViewModels)
         {
             var Sum = orderViewModels.Sum(x => x.Total).ToString();
-            lblSumPrice.Text= Sum;
+            lblSumPrice.Text = Sum;
         }
 
-       
 
-        private  void FrmOrders_Load(object sender, EventArgs e)
+
+        private void FrmOrders_Load(object sender, EventArgs e)
         {
             dataGridViewX1.DataSource = orderViewModels.ToList();
             SetName_DataGridView();
         }
 
-     
 
-        private  void btnChange_Count_order_Click_1(object sender, EventArgs e)
+
+        private void btnChange_Count_order_Click_1(object sender, EventArgs e)
         {
             var id = GetIdDataGridView();
             var item = db.Products.Find(id);
@@ -86,8 +86,8 @@ namespace WindowsFormsApp1
             {
                 var item2 = orderViewModels.Find(x => x.id == id);
 
-                item2.count = int.Parse( numericUpDown1.Value.ToString());
-                
+                item2.count = int.Parse(numericUpDown1.Value.ToString());
+
             }
             else
             {
@@ -96,14 +96,14 @@ namespace WindowsFormsApp1
 
             SumPriceOrders(orderViewModels);
             FrmOrders_Load(null, null);
-           
+
         }
 
-        private  void btnDeleteOrder_Click_1(object sender, EventArgs e)
+        private void btnDeleteOrder_Click_1(object sender, EventArgs e)
         {
             var item = orderViewModels.Find(x => x.id == GetIdDataGridView());
-            
-            var check =  orderViewModels.Remove(item);
+
+            var check = orderViewModels.Remove(item);
             if (check != true)
                 MessageBox.Show("رکوردی برای حذف وجود ندارد");
             else
@@ -113,28 +113,30 @@ namespace WindowsFormsApp1
             FrmOrders_Load(null, null);
         }
 
-       
+
         private async void Subtract_From_Count_Product()
         {
-foreach(var item in orderViewModels)
+            foreach (var item in orderViewModels)
             {
                 Order order = new Order()
                 {
-                    Count=item.count,
-                    Product_id=item.Kala_Id,
-                    User_id=item.User_Id,
-                    CreateDate=DateTime.Now.ToShamsi()
+                    Count = item.count,
+                    Product_id = item.Kala_Id,
+                    User_id = item.User_Id,
+                    CreateDate = DateTime.Now.ToShamsi()
                 };
                 await op_order.AddData(order);
-               var i=await db.Products.FindAsync(item.id);
+                var i = await db.Products.FindAsync(item.id);
                 i.Count -= item.count;
                 db.SaveChanges();
             }
         }
-        private  void btn_Print_Click(object sender, EventArgs e)
+        private void btn_Print_Click(object sender, EventArgs e)
         {
             Subtract_From_Count_Product();
             orderViewModels.ToPdf();
+          
+
 
         }
 
@@ -143,14 +145,14 @@ foreach(var item in orderViewModels)
             new Frm_OrderUsers(db, op_User).ShowDialog();
         }
 
-        private  void FrmOrders_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmOrders_FormClosed(object sender, FormClosedEventArgs e)
         {
-           frmStartup.FormLoad();
-            
+            frmStartup.FormLoad();
+
 
         }
 
-       
+
     }
-    
+
 }

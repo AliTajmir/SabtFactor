@@ -199,7 +199,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btn_Sabt_order_Click_1(object sender, EventArgs e)
+        private async void btn_Sabt_order_Click_1(object sender, EventArgs e)
         {
             if (dataGridViewX1.Rows.Count > 0)
             {
@@ -207,7 +207,7 @@ namespace WindowsFormsApp1
                 {
 
                     int id = GetIdGridView();
-                    var item = db.Products.Find(id);
+                    Products item =await op_Product.GetItem(id);
                     var check_NameKala_Exists = list.Any(x => x.NameKala == item.Name);
                     if (check_NameKala_Exists == false)
                     {
